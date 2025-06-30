@@ -13,7 +13,7 @@ import '../assets/Css/AboutUs.css'
 import aboutVideo from '../assets/video/about-us-video.mp4'
 
 // testimonial 
-import ClientTestimonial from '../Pages/ClientTestimonial'
+
 import CommonHeadline from '../Pages/CommonHeadline'
 import PurposefulNutrition from '../assets/Image/productImg/PurposefulNutrition.png'
 import NoFillers from '../assets/Image/productImg/NoFillers.png';
