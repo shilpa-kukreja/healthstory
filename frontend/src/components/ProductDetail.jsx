@@ -2,11 +2,7 @@
 
 
 
-import masterCard from '../assets/Image/payment/Mastercard-Image.jpg'
-import payPel from '../assets/Image/payment/PayPel-Image.jpg'
-import rupay from '../assets/Image/payment/Rupay-Image.jpg'
-import stripe from '../assets/Image/payment/stripe-Image.jpg'
-import visa from '../assets/Image/payment/Visa-Image.jpg'
+
 
 import { Link } from 'react-router-dom'
 import RelatedProduct from './RelatedProduct'
