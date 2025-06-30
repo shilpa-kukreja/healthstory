@@ -144,14 +144,14 @@ const ProductDetail = () => {
               <SwiperSlide key={id}>
                 <div className="zoom-wrapper">
                   <img src={product.thumbImg
-                    ? `http://localhost:2000/uploads/thumbimg/${product.thumbImg}`
+                    ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
                     : "/placeholder.jpg"} alt={`product-${id}`} width="100%" className="main-img" />
                 </div>
               </SwiperSlide>
               {product.galleryImg.map((img, id) => (
                 <SwiperSlide key={id}>
                   <div className="zoom-wrapper">
-                    <img src={`http://localhost:2000/uploads/galleryimg/${img}`} alt={`product-${id}`} width="100%" className="main-img" />
+                    <img src={`https://healthstory.net.in/uploads/galleryimg/${img}`} alt={`product-${id}`} width="100%" className="main-img" />
                   </div>
                 </SwiperSlide>
               ))}
@@ -169,14 +169,14 @@ const ProductDetail = () => {
               <SwiperSlide key={id}>
                 <div className="zoom-wrapper">
                   <img src={product.thumbImg
-                    ? `http://localhost:2000/uploads/thumbimg/${product.thumbImg}`
+                    ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
                     : "/placeholder.jpg"} alt={`product-${id}`} width="100%" className="main-img" />
                 </div>
               </SwiperSlide>
               {product.galleryImg.map((img, id) => (
                 <SwiperSlide key={id}>
                   <div className="zoom-wrapper">
-                    <img src={`http://localhost:2000/uploads/galleryimg/${img}`} alt={`product-${id}`} width="100%" className="main-img" />
+                    <img src={`https://healthstory.net.in/uploads/galleryimg/${img}`} alt={`product-${id}`} width="100%" className="main-img" />
                   </div>
                 </SwiperSlide>
               ))}

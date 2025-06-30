@@ -13,7 +13,7 @@ const Contact = () => {
   useEffect(() => {
     const fetchContacts = async () => {
       try {
-        const response = await fetch("http://localhost:2000/api/contact/get");
+        const response = await fetch("https://healthstory.net.in/api/contact/get");
         const data = await response.json();
         setContacts(data);
       } catch (error) {

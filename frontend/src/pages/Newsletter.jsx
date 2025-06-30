@@ -7,7 +7,7 @@ const Newsletter = () => {
   const handleSubscribe = async (e) => {
     e.preventDefault(); // Prevent form submission default
     try {
-      const response = await axios.post("http://localhost:2000/api/subscribe", { email });
+      const response = await axios.post("https://healthstory.net.in/api/subscribe", { email });
       alert(response.data.message);
       setEmail("");
     } catch (error) {

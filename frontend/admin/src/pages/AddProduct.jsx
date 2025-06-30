@@ -81,7 +81,7 @@
 
 //     const fetchSubcategories = async () => {
 //         try {
-//             const res = await axios.get("http://localhost:2000/api/subcategory/get");
+//             const res = await axios.get("https://healthstory.net.in/api/subcategory/get");
 //             setFilteredSubcategories(res.data.subcategorys || []);
 //         } catch (error) {
 //             console.error("Error fetching subcategories:", error);
@@ -92,7 +92,7 @@
 //     const fetchProductDetails = async () => {
 //         try {
 //             setLoading(true);
-//             const response = await axios.get(`http://localhost:2000/api/product/${id}`);
+//             const response = await axios.get(`https://healthstory.net.in/api/product/${id}`);
 //             if (response.data.success) {
 //                 const product = response.data.product;
 
@@ -235,13 +235,13 @@
 //             let response;
 //             if (isEditMode) {
 //                 response = await axios.put(
-//                     `http://localhost:2000/api/product/${id}`,
+//                     `https://healthstory.net.in/api/product/${id}`,
 //                     payload,
 //                     { headers: { "Content-Type": "multipart/form-data" } }
 //                 );
 //             } else {
 //                 response = await axios.post(
-//                     "http://localhost:2000/api/product/add",
+//                     "https://healthstory.net.in/api/product/add",
 //                     payload,
 //                     { headers: { "Content-Type": "multipart/form-data" } }
 //                 );
@@ -744,7 +744,7 @@ const AddProduct = () => {
 
     const fetchSubcategories = async () => {
         try {
-            const res = await axios.get("http://localhost:2000/api/subcategory/get");
+            const res = await axios.get("https://healthstory.net.in/api/subcategory/get");
             setFilteredSubcategories(res.data.subcategorys || []);
         } catch (error) {
             console.error("Error fetching subcategories:", error);
@@ -755,7 +755,7 @@ const AddProduct = () => {
     const fetchProductDetails = async () => {
         try {
             setLoading(true);
-            const response = await axios.get(`http://localhost:2000/api/product/${id}`);
+            const response = await axios.get(`https://healthstory.net.in/api/product/${id}`);
             if (response.data.success) {
                 const product = response.data.product;
 
@@ -777,12 +777,12 @@ const AddProduct = () => {
                 setShowVariantFields(product.variant?.length > 0);
 
                 if (product.thumbImg) {
-                    setThumbImgPreview(`http://localhost:2000/uploads/thumbimg/${product.thumbImg}`);
+                    setThumbImgPreview(`https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`);
                 }
 
                 if (product.galleryImg?.length > 0) {
                     const galleryUrls = product.galleryImg.map(img =>
-                        typeof img === 'string' ? `http://localhost:2000/uploads/galleryimg/${img}` : img
+                        typeof img === 'string' ? `https://healthstory.net.in/uploads/galleryimg/${img}` : img
                     );
                     setGalleryPreviews(galleryUrls);
                 }
@@ -898,13 +898,13 @@ const AddProduct = () => {
             let response;
             if (isEditMode) {
                 response = await axios.post(
-                    `http://localhost:2000/api/product/${id}`,
+                    `https://healthstory.net.in/api/product/${id}`,
                     payload,
                     { headers: { "Content-Type": "multipart/form-data" } }
                 );
             } else {
                 response = await axios.post(
-                    "http://localhost:2000/api/product/add",
+                    "https://healthstory.net.in/api/product/add",
                     payload,
                     { headers: { "Content-Type": "multipart/form-data" } }
                 );

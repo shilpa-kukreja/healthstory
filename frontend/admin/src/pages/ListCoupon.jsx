@@ -12,7 +12,7 @@ const ListCoupon = ({ token }) => {
 
   const fetchCoupons = async () => {
     try {
-      const { data } = await axios.get("http://localhost:2000/api/coupon/get", {
+      const { data } = await axios.get("https://healthstory.net.in/api/coupon/get", {
         headers: { token },
       });
       setCoupons(data.coupons);
@@ -25,7 +25,7 @@ const ListCoupon = ({ token }) => {
 
   const toggleStatus = async (id) => {
     try {
-      const { data } = await axios.put(`http://localhost:2000/api/coupon/${id}/toggle`, {}, {
+      const { data } = await axios.put(`https://healthstory.net.in/api/coupon/${id}/toggle`, {}, {
         headers: { token },
       });
 
@@ -42,7 +42,7 @@ const ListCoupon = ({ token }) => {
   const deleteCoupon = async (id) => {
     if (!window.confirm("Are you sure you want to delete this coupon?")) return;
     try {
-      await axios.delete(`http://localhost:2000/api/coupon/${id}`, {
+      await axios.delete(`https://healthstory.net.in/api/coupon/${id}`, {
         headers: { token },
       });
       setCoupons((prev) => prev.filter((c) => c._id !== id));

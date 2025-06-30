@@ -49,7 +49,7 @@ const handleLoginSuccess = () => {
     const body = { email, password, rememberMe };
 
     try {
-      const response = await fetch(`http://localhost:2000${url}`, {
+      const response = await fetch(`https://healthstory.net.in${url}`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(body),
@@ -74,7 +74,7 @@ const handleLoginSuccess = () => {
   const handleForgotPassword = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('http://localhost:2000/api/auth/forgot-password', {
+      const res = await fetch('https://healthstory.net.in/api/auth/forgot-password', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email }),
@@ -102,7 +102,7 @@ const handleLoginSuccess = () => {
         });
         const user = await userInfo.json();
 
-        const response = await fetch('http://localhost:2000/api/auth/googlelogin', {
+        const response = await fetch('https://healthstory.net.in/api/auth/googlelogin', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(user),

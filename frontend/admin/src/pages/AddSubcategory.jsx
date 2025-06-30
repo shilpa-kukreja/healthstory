@@ -47,7 +47,7 @@ const AddSubcategory = () => {
   // Fetch category list
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:2000/api/category/list");
+      const res = await axios.get("https://healthstory.net.in/api/category/list");
       const fetchedCategories = res.data.categories || defaultCategories;
       setCategories(fetchedCategories);
 
@@ -106,7 +106,7 @@ const AddSubcategory = () => {
     try {
       if (editSubcategory) {
         await axios.put(
-          `http://localhost:2000/api/subcategory/${editSubcategory._id}`,
+          `https://healthstory.net.in/api/subcategory/${editSubcategory._id}`,
           formDataToSend,
            {
             headers: {
@@ -118,7 +118,7 @@ const AddSubcategory = () => {
         toast.success("Subcategory updated successfully");
       } else {
         await axios.post(
-          "http://localhost:2000/api/subcategory/add",
+          "https://healthstory.net.in/api/subcategory/add",
           formDataToSend,
           {
             headers: {

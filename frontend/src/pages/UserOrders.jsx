@@ -13,7 +13,7 @@ const UserOrders = () => {
       if (!token) return;
 
       const response = await axios.post(
-        "http://localhost:2000/api/order/userorders",
+        "https://healthstory.net.in/api/order/userorders",
         {},
         { headers: { token } }
       );

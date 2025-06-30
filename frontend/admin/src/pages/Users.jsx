@@ -13,7 +13,7 @@ const Users = () => {
 
   const fetchUsers = async () => {
     try {
-      const response = await axios.get("http://localhost:2000/api/auth/alluser");
+      const response = await axios.get("https://healthstory.net.in/api/auth/alluser");
       setUsers(response.data.Users || []);
     } catch (error) {
       console.error("Error fetching users:", error);
@@ -25,7 +25,7 @@ const Users = () => {
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
-      await axios.delete(`http://localhost:2000/api/auth/delete/${id}`);
+      await axios.delete(`https://healthstory.net.in/api/auth/delete/${id}`);
       setUsers((prev) => prev.filter((user) => user._id !== id));
     } catch (error) {
       console.error("Error deleting user:", error);

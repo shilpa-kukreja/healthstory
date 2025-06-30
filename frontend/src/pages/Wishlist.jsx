@@ -61,7 +61,7 @@ const Wishlist = () => {
                 ) : (
                     wishlistItems.map(item => (
                         <div key={item.id} className="wishlist-item">
-                            <img src={`http://localhost:2000/uploads/thumbimg/${item.thumbImg}`} alt={item.name} />
+                            <img src={`https://healthstory.net.in/uploads/thumbimg/${item.thumbImg}`} alt={item.name} />
                             <div>
                                 <h4>{item.name}</h4>
                                 <p>₹{item.price || item.variant?.[0]?.discountPrice}</p>

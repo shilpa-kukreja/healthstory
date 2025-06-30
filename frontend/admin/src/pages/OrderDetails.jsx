@@ -11,7 +11,7 @@ const OrderDetails = ({ token }) => {
     const fetchOrderDetails = async () => {
       if (!token) return;
       try {
-        const res = await axios.get(`http://localhost:2000/api/order/list/${id}`, {
+        const res = await axios.get(`https://healthstory.net.in/api/order/list/${id}`, {
           headers: { token },
         });
         if (res.data.success) {

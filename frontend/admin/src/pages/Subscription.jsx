@@ -39,7 +39,7 @@ const Subscription = () => {
     try {
       setLoading(true);
       const response = await axios.get(
-        `http://localhost:2000/api/subscribers?page=${currentPage}&limit=${itemsPerPage}`
+        `https://healthstory.net.in/api/subscribers?page=${currentPage}&limit=${itemsPerPage}`
       );
       
       // Handle both array and object responses
@@ -79,7 +79,7 @@ const Subscription = () => {
 
   const handleUnsubscribeConfirm = async () => {
     try {
-      await axios.delete(`http://localhost:2000/api/unsubscribe/${emailToDelete}`);
+      await axios.delete(`https://healthstory.net.in/api/unsubscribe/${emailToDelete}`);
       // Optimistic UI update
       setSubscribers(prev => prev.filter((sub) => sub.email !== emailToDelete));
       

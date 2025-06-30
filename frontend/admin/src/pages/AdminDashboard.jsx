@@ -9,7 +9,7 @@ const AdminDashboard = () => {
 
   const fetchDashboardData = async () => {
     try {
-      const res = await axios.get("http://localhost:2000/api/admin/dashboard");
+      const res = await axios.get("https://healthstory.net.in/api/admin/dashboard");
       setData(res.data.data);
     } catch (error) {
       console.error("Failed to fetch dashboard data:", error);

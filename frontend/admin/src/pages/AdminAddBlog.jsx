@@ -52,7 +52,7 @@ const AdminAddBlog = () => {
 
   const fetchBlogDetails = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:2000/api/blog/${id}`);
+      const { data } = await axios.get(`https://healthstory.net.in/api/blog/${id}`);
       const blog = data.blog;
 
       // Format blogDate to 'YYYY-MM-DD'
@@ -145,8 +145,8 @@ const AdminAddBlog = () => {
     try {
       setLoading(true);
       const url = isEditMode
-        ? `http://localhost:2000/api/blog/${id}`
-        : "http://localhost:2000/api/blog/addblog";
+        ? `https://healthstory.net.in/api/blog/${id}`
+        : "https://healthstory.net.in/api/blog/addblog";
 
       const res = await axios.post(url, payload, {
         headers: { "Content-Type": "multipart/form-data" },

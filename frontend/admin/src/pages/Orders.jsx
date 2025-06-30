@@ -18,7 +18,7 @@ const Orders = ({ token }) => {
   const fetchOrders = async () => {
     try {
       const res = await axios.post(
-        'http://localhost:2000/api/order/list',
+        'https://healthstory.net.in/api/order/list',
         {},
         { headers: { token } }
       );

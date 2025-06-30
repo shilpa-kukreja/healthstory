@@ -14,7 +14,7 @@ const ListProducts = () => {
 
   const fetchProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:2000/api/product/list');
+      const res = await axios.get('https://healthstory.net.in/api/product/list');
       setProducts(res.data.products);
     } catch (err) {
       console.error(err);
@@ -24,7 +24,7 @@ const ListProducts = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.post('http://localhost:2000/api/product/remove', 
+      await axios.post('https://healthstory.net.in/api/product/remove', 
         { id },
     );
       toast.success('Product deleted successfully');
@@ -88,7 +88,7 @@ const ListProducts = () => {
                     <img
                       src={
                         product.thumbImg
-                      ? `http://localhost:2000/uploads/thumbimg/${product.thumbImg}`
+                      ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
                       : "/placeholder.jpg"
                   }
                       alt={product.name}

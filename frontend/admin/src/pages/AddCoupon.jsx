@@ -57,13 +57,13 @@ const AddCoupon = ({ token }) => {
       let response;
       if (editingCoupon) {
         response = await axios.put(
-          `http://localhost:2000/api/coupon/${editingCoupon._id}`,
+          `https://healthstory.net.in/api/coupon/${editingCoupon._id}`,
           payload,
           { headers: { token } }
         );
       } else {
         response = await axios.post(
-          'http://localhost:2000/api/coupon/add',
+          'https://healthstory.net.in/api/coupon/add',
           payload,
           { headers: { token } }
         );

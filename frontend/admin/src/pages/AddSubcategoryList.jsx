@@ -15,7 +15,7 @@ const AddSubcategoryList = () => {
 
     const fetchSubcategories = async () => {
         try {
-            const res = await axios.get("http://localhost:2000/api/subcategory/get");
+            const res = await axios.get("https://healthstory.net.in/api/subcategory/get");
             setSubcategories(res.data.subcategorys || []);
         } catch (error) {
             toast.error("Failed to fetch subcategories");
@@ -29,7 +29,7 @@ const AddSubcategoryList = () => {
     const handleDelete = async (id) => {
         if (!window.confirm("Are you sure you want to delete this subcategory?")) return;
         try {
-            await axios.post("http://localhost:2000/api/subcategory/remove", { id });
+            await axios.post("https://healthstory.net.in/api/subcategory/remove", { id });
             toast.success("Subcategory deleted");
             fetchSubcategories();
         } catch (error) {

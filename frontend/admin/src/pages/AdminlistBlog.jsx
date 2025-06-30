@@ -14,7 +14,7 @@ const ListProducts = () => {
 
     const fetchBlogs = async () => {
         try {
-            const res = await axios.get('http://localhost:2000/api/blog/bloglist');
+            const res = await axios.get('https://healthstory.net.in/api/blog/bloglist');
             setBlogs(res.data.blogs);
         } catch (err) {
             console.error(err);
@@ -24,7 +24,7 @@ const ListProducts = () => {
 
     const handleDelete = async (id) => {
         try {
-            await axios.post('http://localhost:2000/api/blog/removeblog',
+            await axios.post('https://healthstory.net.in/api/blog/removeblog',
                 { id },
             );
             toast.success('Blog deleted successfully');

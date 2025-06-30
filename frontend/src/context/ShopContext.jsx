@@ -55,7 +55,7 @@ const ShopContextProvider = (props) => {
 
   //  const fetchCategories=async()=>{
   //   try {
-  //       const response=await axios.get("http://localhost:2000/api/category/list");
+  //       const response=await axios.get("https://healthstory.net.in/api/category/list");
   //       if (response.data.success) {
   //           console.log(response.data);
   //            setCategory(response.data.categorys)
@@ -73,7 +73,7 @@ const ShopContextProvider = (props) => {
 
   const fetchSubCategories = async () => {
     try {
-      const response = await axios.get("http://localhost:2000/api/subcategory/get")
+      const response = await axios.get("https://healthstory.net.in/api/subcategory/get")
       if (response.data.success) {
         console.log(response.data)
         setSubcategory(response.data.subcategorys)
@@ -90,7 +90,7 @@ const ShopContextProvider = (props) => {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get("http://localhost:2000/api/product/list");
+      const response = await axios.get("https://healthstory.net.in/api/product/list");
       if (response.data.success) {
         console.log(response.data)
         setProducts(response.data.products)
@@ -107,7 +107,7 @@ const ShopContextProvider = (props) => {
 
    const fetchblogs=async()=>{
      try {
-      const response=await axios.get("http://localhost:2000/api/blog/bloglist")
+      const response=await axios.get("https://healthstory.net.in/api/blog/bloglist")
        if (response.data.success) {
           console.log(response.data);
           setBlog(response.data.blogs)
@@ -136,9 +136,9 @@ const ShopContextProvider = (props) => {
     const variantKey = selectedVariant?.size || null;
     const image =
       product.thumbImg
-        ? `http://localhost:2000/uploads/thumbimg/${product.thumbImg}`
+        ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
         : product.image
-          ? `http://localhost:2000/uploads/${product.image}`
+          ? `https://healthstory.net.in/uploads/${product.image}`
           : "/placeholder.jpg";
 
     const price = Number(

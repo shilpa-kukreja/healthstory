@@ -31,7 +31,7 @@ const SignIn = () => {
         const body = { email, mobile, password };
 
         try {
-            const response = await fetch(`http://localhost:2000${url}`, {
+            const response = await fetch(`https://healthstory.net.in${url}`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -67,7 +67,7 @@ const SignIn = () => {
 
                 // You can now use user.email / user.name / user.picture etc.
                 // Send to your backend to handle login/register
-                const response = await fetch('http://localhost:2000/api/auth/gogglelogin', {
+                const response = await fetch('https://healthstory.net.in/api/auth/gogglelogin', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',

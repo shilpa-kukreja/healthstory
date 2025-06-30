@@ -69,7 +69,7 @@ const CheckOut = () => {
             const totalAmount = cartTotal; // Total before discount
 
             const { data } = await axios.post(
-                "http://localhost:2000/api/coupon/apply",
+                "https://healthstory.net.in/api/coupon/apply",
                 { couponCode, totalAmount },
                 { headers: { token } }
 
@@ -108,7 +108,7 @@ const CheckOut = () => {
                 try {
                     setLoading(true);
                     const { data } = await axios.post(
-                        "http://localhost:2000/api/order/verifyRazorpay",
+                        "https://healthstory.net.in/api/order/verifyRazorpay",
                         response,
                         { headers: { token } }
                     );
@@ -261,7 +261,7 @@ const CheckOut = () => {
         case "cod": {
             // 1. Place order via your backend
             const response = await axios.post(
-                "http://localhost:2000/api/order/place",
+                "https://healthstory.net.in/api/order/place",
                 orderData,
                 { headers: { token } }
             );
@@ -359,7 +359,7 @@ const CheckOut = () => {
 
         case "razorpay": {
             const responseRazorpay = await axios.post(
-                "http://localhost:2000/api/order/razorpay",
+                "https://healthstory.net.in/api/order/razorpay",
                 orderData,
                 { headers: { token } }
             );
