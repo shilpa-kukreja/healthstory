@@ -14,7 +14,7 @@ import aboutVideo from '../assets/video/about-us-video.mp4'
 
 // testimonial 
 
-import CommonHeadline from '../Pages/CommonHeadline'
+import CommonHeadline from '../pages/CommonHeadline'
 import PurposefulNutrition from '../assets/Image/productImg/PurposefulNutrition.png'
 import NoFillers from '../assets/Image/productImg/NoFillers.png';
 import EverydayWellness from '../assets/Image/productImg/EverydayWellness.png';
