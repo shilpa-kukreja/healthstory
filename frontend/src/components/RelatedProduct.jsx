@@ -4,7 +4,7 @@ import { Navigation, Autoplay } from 'swiper/modules';
 import { FiHeart } from 'react-icons/fi';
 import { IoStar, IoStarHalfOutline } from "react-icons/io5";
 import { Link, useParams } from 'react-router-dom';
-import CommonHeadline from '../Pages/CommonHeadline';
+import CommonHeadline from '../pages/CommonHeadline';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
