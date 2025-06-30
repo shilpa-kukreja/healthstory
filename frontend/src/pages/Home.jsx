@@ -13,7 +13,7 @@ import ProductBenfits from '../components/ProductBenefits'
 import HowToUse from '../components/HowToUse'
 import Brand from '../components/Brand'
 import Whychooseus from '../components/Whychooseus'
-import Banner from '../components/banner'
+import Banner from '../components/Banner'
 import WhyLoveOrigin from '../components/WhyLoveOrigin'
 import Ingredients from '../components/Ingredients'
 
