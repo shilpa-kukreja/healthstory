@@ -2,7 +2,7 @@
 
 import React, { useContext, useState, useEffect } from 'react';
 
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import '../assets/Css/ProductSlide.css';
 
 import { FiHeart } from 'react-icons/fi';

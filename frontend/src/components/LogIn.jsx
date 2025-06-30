@@ -4,7 +4,7 @@ import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import logo from '../assets/Image/logo/healthstoryFinal.png';
 import banner from '../assets/Image/productImg/loginsignup.jpg';
 import { useGoogleLogin } from '@react-oauth/google';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 
 const LogIn = () => {

@@ -37,7 +37,7 @@ import icon from '../assets/Image/icon/icon.png'
 
 
 import { useParams } from 'react-router-dom';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Thumbs } from 'swiper/modules';
 import 'swiper/css';

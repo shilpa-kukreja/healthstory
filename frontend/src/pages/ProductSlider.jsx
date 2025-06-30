@@ -14,7 +14,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import '../assets/Css/ProductSlide.css';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { FaChevronDown } from "react-icons/fa";
 
 

@@ -4,7 +4,7 @@
 
 
 import React, { useContext } from 'react';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { MdOutlineDeleteForever } from 'react-icons/md';
 import '../assets/Css/Cart.css';
 import { useEffect } from 'react';

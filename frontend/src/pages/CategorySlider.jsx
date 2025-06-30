@@ -5,7 +5,7 @@ import 'swiper/css';
 import '../assets/Css/InstaPost.css';
 import { useContext } from 'react';
 
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 
 const CategorySlider = () => {

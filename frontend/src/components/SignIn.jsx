@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import prakritisaLogo from '../assets/Image/logo/healthstoryFinal.png';
 import img1 from '../assets/Image/productImg/loginsignup.jpg';
 import { FaFacebook } from "react-icons/fa";

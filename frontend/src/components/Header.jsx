@@ -21,7 +21,7 @@ import '../assets/Css/Header.css'
 
 import { FiMenu } from "react-icons/fi";
 import { RxCross2 } from "react-icons/rx";
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 
 

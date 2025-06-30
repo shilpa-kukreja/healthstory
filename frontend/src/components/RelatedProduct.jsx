@@ -10,7 +10,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import '../assets/Css/ProductSlide.css';
 
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 const RelatedProduct = ({ currentProductId, category }) => {
     const { products, addToCart } = useContext(ShopContext);

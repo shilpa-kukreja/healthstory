@@ -13,7 +13,7 @@ import { FaPhone } from "react-icons/fa6";
 
 import { MdEmail } from "react-icons/md";
 
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 
 const Footer = () => {
   const { blog } = useContext(ShopContext);
