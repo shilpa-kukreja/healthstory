@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import '../assets/Css/CheckOut.css';
-import { ShopContext } from '../Context/ShopContext';
+import { ShopContext } from '../context/ShopContext';
 import { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
