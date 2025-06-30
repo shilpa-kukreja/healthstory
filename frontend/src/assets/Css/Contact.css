@@ -1,0 +1,138 @@
+.contact_component {
+   background-color: #fefefe;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact_section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.form_container {
+  flex: 1 1 60%;
+}
+
+.form_tag {
+  text-transform: uppercase;
+  font-size: 14px;
+  color: #8ca88a;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.form_title {
+  font-size: 32px;
+  color: #333;
+  margin: 10px 0 30px;
+}
+
+.contact_form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form_group {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.form_group.full {
+  flex-direction: column;
+}
+
+.contact_form input,
+.contact_form textarea {
+   flex: 1;
+  padding: 14px 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.2s ease;
+}
+
+.contact_form input:focus,
+.contact_form textarea:focus {
+  border-color: #8ca88a;
+  outline: none;
+}
+
+.contact_form textarea {
+  resize: vertical;
+}
+
+.contact_form button {
+  background-color: #8ca88a;
+  color: #fff;
+  border: none;
+  padding: 14px 25px;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.contact_form button:hover {
+  background-color: #889f87;
+}
+
+.form_status {
+  text-align: center;
+  color: #555;
+  margin-top: 10px;
+}
+
+.contact_info {
+  flex: 1 1 35%;
+  background: #fcf7f2;
+  padding: 30px;
+  border-radius: 8px;
+}
+
+.info_block {
+  margin-bottom: 30px;
+  border-bottom: 1px solid #d7ccc0;
+  padding-bottom: 20px;
+}
+
+.info_block h3 {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #4f3d32;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.info_block p,
+.info_block ul li {
+  font-size: 15px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.info_block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.info_block a {
+  color: #333;
+  text-decoration: none;
+}
+
+.info_block a:hover {
+  text-decoration: underline;
+}
+
+

@@ -1,0 +1,264 @@
+
+
+.footer_section{background-color:#32784c ; color: #fff; padding: 60px 0;  }
+
+.footer_section .footer_widget{ flex: 1 1 23%;  width: 23%;}  
+.footer_section .footer_logo{ flex: 1 1 27%  ; width: 27%; padding-right: 35px;}
+
+.footer_section  .footer_widget  p{ margin-top: 42px;}
+
+.footer_section .footer_links { display: flex; flex-wrap: wrap; justify-content: space-between;}
+.footer_section  .footer_widget h4{ font-size: 30px; margin-bottom: 30px ;}
+
+
+
+.footer_section .footer_widget ul li {
+    line-height: 30px;
+    position: relative;
+    transition: padding-left 0.3s ease;
+}
+
+.footer_section .footer_widget ul li a {
+    color: #fff;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s ease;
+    text-decoration: none;
+}
+
+.footer_section .footer_widget ul li::before  {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 23px;
+    height: 2px;
+    width: 0;
+    background-color: #fff;
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+/* .footer_section .footer_widget ul li:hover::before {
+    width: 40%;
+} */
+
+.footer_section .footer_widget ul li:hover {
+    padding-left: 10px;
+}
+
+
+
+
+
+/* watsapp css  */
+
+
+/*  watsapp icon */
+
+.btn-whatsapp-pulse {
+    background: #25d366;
+    color: white;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    z-index: 100;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 50%;
+    animation-name: pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5);
+    }
+  
+    80% {
+      box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+  }
+  
+  .btn-whatsapp-pulse-border {
+    bottom: 120px;
+    right: 20px;
+    animation-play-state: paused;
+  }
+  
+  .btn-whatsapp-pulse-border::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    padding: 25px;
+    border: 5px solid #25d366;
+    opacity: 0.75;
+    animation-name: pulse-border;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes pulse-border {
+    0% {
+      padding: 25px;
+      opacity: 0.75;
+    }
+  
+    75% {
+      padding: 50px;
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+  
+  
+  
+  /*  call animation  */
+  
+  .btn-call-pulse {
+    background: #1d304f;
+    color: white;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    font-size: 20px;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 0;
+    height: 0;
+    padding: 20px;
+    text-decoration: none;
+    border-radius: 50%;
+    animation-name: call-pulse;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  
+  }
+  .btn-call-pulse .icon{color: #fff;} 
+
+  .btn-call-pulse img{ color: #fff!important; font-size: 12px!important; }
+  
+  
+  @keyframes call-pulse {
+    0% {
+      box-shadow: 0 0 0 0 #1d304f;
+    }
+  
+    80% {
+      box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+    }
+  }
+  
+  .btn-call-phone-animate {
+    bottom: 120px;
+    right: 20px;
+    animation-play-state: paused;
+  }
+  
+  .btn-call-::before {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    padding: 25px;
+    border: 5px solid #1d304f;
+    opacity: 0.75;
+    animation-name: phone-animate;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-out;
+    animation-iteration-count: infinite;
+  }
+  
+  @keyframes phone-animate {
+    0% {
+      padding: 25px;
+      opacity: 0.75;
+    }
+  
+    75% {
+      padding: 50px;
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 0;
+    }
+  }
+
+
+  /* // responsive */
+
+  
+/* Responsive Breakpoints */
+@media (max-width: 992px) {
+  .footer_section .footer_widget,
+  .footer_section .footer_logo {
+    flex: 1 1 45%;
+    max-width: 45%;
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer_section .footer_widget,
+  .footer_section .footer_logo {
+    flex: 1 1 100%;
+    max-width: 100%;
+    
+  }
+
+  .footer_section .footer_widget ul {
+    padding-left: 0;
+  }
+
+  .footer_section .footer_widget .logo img {
+    margin: 0 auto;
+  }
+}
+  
+  @media screen and (max-width:757px) {
+    .btn-call-pulse {
+      font-size: 20px;
+      padding: 20px;
+      bottom: 80px;
+    }
+  
+    .btn-whatsapp-pulse {
+      font-size: 20px;
+      padding: 20px;
+    }
+  }
+  
+  
+  
+
+  .contact_address_detail li{ margin-bottom: 20px;  font-size: 18px ; display:flex; align-items: center; }
+  .contact_address_detail li .icon{  color: #fff;}
+
+ 
+   .contact_address_detail .address,.contact_num,.email_info {
+    color: #fff;
+    display: inline-flex
+;   font-size: 16px;
+    align-items: center;
+}
+
+.contact_address_detail .contact_num a{ color: #fff ;}
+.contact_address_detail .address span{ letter-spacing: 1px; color: #fff; width: 90%; font-size: 12px;}
+.contact_address_detail .email_info a{ letter-spacing: 1px ; color: #fff;}
+
+  

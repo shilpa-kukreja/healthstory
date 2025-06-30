@@ -1,0 +1,101 @@
+
+
+.orders-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    
+}
+.order-conf-container {
+    
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+    border-top: 5px solid #4CAF50; /* Accent color */
+}
+
+.order-conf-title {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.order-conf-details {
+    margin-bottom: 25px;
+    text-align: left;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+    padding: 20px 0;
+}
+
+.order-conf-item {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1em;
+    color: #555;
+}
+
+.order-conf-label {
+    font-weight: bold;
+    color: #333;
+    margin-right: 10px;
+}
+
+.order-conf-value {
+    color: #555;
+}
+
+.order-conf-amount {
+    font-weight: bold;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.order-conf-status {
+    font-weight: bold;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.order-conf-status-paid {
+    background-color: #e8f5e9; /* Light green */
+    color: #388e3c; /* Dark green */
+}
+
+.order-conf-status-pending {
+    background-color: #fff3e0; /* Light orange */
+    color: #f57c00; /* Dark orange */
+}
+
+.order-conf-status-failed {
+    background-color: #ffebee; /* Light red */
+    color: #d32f2f; /* Dark red */
+}
+
+.order-conf-message {
+    color: #666;
+    font-size: 0.95em;
+    line-height: 1.5;
+}
+
+.back-to-home-btn{
+    padding:10px 17px;
+    border-radius:5px;
+    background-color:#4CAF50;
+    border:0;
+    display:block;
+    margin:auto;
+    color:#fff;
+    font-weight:bold;
+    text-decoration:none;
+}

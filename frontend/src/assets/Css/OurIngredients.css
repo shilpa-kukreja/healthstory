@@ -1,0 +1,6 @@
+
+@media (min-width: 768px) {
+  .ingredient-grid .ingredient-box:nth-last-child(1):nth-child(3n+1) {
+    grid-column: 2 / span 1; /* Center in 3-column layout */
+  }
+}

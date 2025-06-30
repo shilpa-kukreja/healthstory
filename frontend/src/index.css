@@ -1,0 +1,200 @@
+/* App.css or index.css */
+@import url('https://fonts.googleapis.com/css2?family=Literata:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+
+@import "tailwindcss";
+
+
+
+:root {
+    --color-white: #fff;
+    --color-black: #000;
+    --clor-red: red;
+    --bg-color:#4f3d32;
+    --product-color:#f5efe6;
+
+}
+/* .marcellus-regular {
+    font-family: "Marcellus", serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+
+  .tailwind-wrapper {
+    all: unset;
+  }
+  
+
+.white-color {
+    color: #fff;
+}
+
+* {
+    margin: 0;
+    padding: 0 ;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+
+body {
+    font-size: 15px;
+    line-height: 1.4;
+   
+
+}
+
+html,
+body {
+  
+     font-family: 'Literata', serif;
+    font-style: normal;
+}
+
+.password-group {
+    position: relative;
+  }
+  
+  .password-toggle {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+  }
+
+  .remember-me {
+    margin: 10px 0;
+    font-size: 14px;
+  }
+  
+
+a {
+    text-decoration: none;
+    color: #000000;
+}
+
+li {
+    list-style: none;
+}
+div p a{
+    color: #33b6bb;
+}
+p a{
+    color: #33b6bb;
+}
+.cursor-pointor{ cursor: pointer;}
+
+ul,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+.container-sm {
+    width: 100%;
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.container-full {
+    width: 100%;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+
+
+
+.relative {
+    position: relative;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.col-half {
+    width: 48%;
+}
+
+.col-2 {
+    width: 20%;
+}
+
+.col-3 {
+    width: 32%;
+}
+
+.col-4 {
+    width: 24%;
+}
+
+.col-5 {
+    width: 30%;
+}
+
+.col-6 {
+    width: 60%;
+}
+
+.col-7 {
+    width: 68%;
+}
+
+.w-50 {
+    width: 48%;
+}
+
+.w-100{ width: 100%;}
+
+.common_btn a { display: inline-block; padding: 10px 18px ; font-size: 14px; background-color: #8ca88a ; color: var(--color-white); margin: 20px 0;   }
+
+.p-3{
+    padding: 15px 15px !important;
+    margin: 10px;
+}
+
+
+/* Newsletter */
+.p-4{
+    padding: 10px 10px !important;
+}
+
+.p-5{
+    margin: 8px;
+}
+
+
+/* whichlist*/
+.py-2{
+    padding: 10px 10px;
+}
+
+
+
+@media screen and (max-width:600px) {
+
+    .image_text_content{ padding : 40px 10px;}
+    
+}
+
+.home-content-head h2{
+    color :#9cb757 !important;
+}
+
+.content-head-org h2{ color: #e07000!important; }

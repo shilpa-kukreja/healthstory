@@ -1,0 +1,120 @@
+
+
+.about_container .about_section {
+    padding: 90px 0  40px 0  ;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* .about_container  .about_section .about_left{  flex: 0 0 48%; width: 48%;  }  */
+/* .about_container  .about_section .about_right{  flex: 0 0 48%; width: 48%;  }  */
+
+.about_container .about_section .about_left,
+.about_container .about_section .about_right {
+    flex: 0 0 48%;
+    width: 48%;
+}
+
+
+.common_right_heading .common_subtitle {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: var(--bg-color);
+}
+
+.common_right_heading .common_title {
+    font-size: 35px;
+    font-weight: normal;
+    text-transform: uppercase;
+    color: var(--bg-color);
+    padding: 10px 0 ;
+}
+
+.common_para {
+    padding: 5px 0;
+    color: var(--bg-color);
+}
+
+
+.about_content_counter{ display: flex; flex-wrap: wrap; max-width: 500px; color: var(--bg-color); margin-top: 20px;}
+.about_content_counter .CounterNumber{ width: 50%; margin-bottom: 20px; }
+.about_content_counter .CounterNumber span{ font-size: 35px ;}
+.about_content_counter .CounterNumber .count_description{  font-size: 16px; font-weight: 600; }
+
+
+
+
+
+
+
+
+
+.philosophy { padding: 30px 0 ;}
+
+.philosophy .grid_box{ display: grid; grid-template-columns: repeat(3, 1fr);  text-align: center;
+    gap: 20px; margin-bottom: 20px ;  }
+    .philosophy .grid_box img{ margin: 0 auto ;}
+    .philosophy .grid_box .inner-box{ border: 1px solid ; padding: 20px ;}
+
+    .philosophy .grid_box .title{ font-size: 20px; letter-spacing: 1px; padding: 10px  0 ;}
+    .philosophy .grid_box .subtitle{ font-size: 16px; letter-spacing: 1px;}
+
+
+
+
+
+
+
+
+
+
+
+/*  testimonial css start here  */
+
+
+.clientTestimonial_section{ padding: 70px 0 ;}
+
+.clientTestimonial_section  .client_section { transition: all .5s ease-in-out;  overflow:hidden ; margin: 30px 0 ; display: flex;  flex-wrap: wrap; justify-content: space-between; align-items: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    
+    }
+.clientTestimonial_section .client_section .product_img { flex: 0 0 48%; width: 48%;   }
+.clientTestimonial_section .client_section .product_img   img{ transition: all .4s ease-in-out; }
+.clientTestimonial_section  .client_section    .client_details { flex: 0 0 48%; width: 48%;  padding: 10px ;}
+.clientTestimonial_section  .client_section    .client_details .title {  font-size: 18px }
+.clientTestimonial_section  .client_section    .client_details .description { font-size: 15px; padding: 10px 0 ;}
+.clientTestimonial_section  .client_section    .client_details .client_img { display: flex;  align-items: center; gap: 20px ; margin-top: 30px; }
+
+.clientTestimonial_section  .client_section:hover .product_img img {  transform: scale(1.05); cursor: pointer; transition: all .4s ease-in-out; }
+
+
+
+
+@media (max-width: 992px) {
+  
+    .common_right_heading .common_title {
+        font-size: 30px;
+        font-weight: normal;
+        text-transform: uppercase;
+        color: var(--bg-color);
+        padding: 10px 0 ;
+    }
+    .about_container .about_section {
+        padding: 60px 0  0 0 ;}
+    
+        .philosophy .grid_box{ display: grid; grid-template-columns: repeat(2, 1fr);}
+}
+
+@media (max-width:767px) {
+       .about_container .about_section .about_left,
+    .about_container .about_section .about_right {
+        flex: 0 0 100%;
+        width: 100%;
+    } 
+    .about_container .about_section .about_right {
+        margin-top: 40px;
+    } 
+    .philosophy .grid_box{ display: grid; grid-template-columns: repeat(1, 1fr);}
+    
+}
