@@ -42,7 +42,7 @@ app.use('/api/contact',contactRouter)
 app.use('/api/admin',adminRouter);
 app.use('/api',router)
 
-const PORT = process.env.PORT || 2000;
+const PORT = process.env.PORT || 5000;
 
 app.get('/', (req, res) => {
   res.send('Hello World!');
