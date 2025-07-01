@@ -1,6 +1,6 @@
 import Razorpay from "razorpay";
 import crypto from "crypto";
-import userModel from "../models/authModel.js";
+import userModel from "../models/authmodel.js";
 import orderModel from "../models/orderModel.js";
 import { v4 as uuidv4 } from 'uuid';
 import nodemailer from 'nodemailer';
