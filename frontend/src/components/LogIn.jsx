@@ -94,34 +94,45 @@ const handleLoginSuccess = () => {
 
 
   // ✅ Google login
-  const googleLogin = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      try {
-        const userInfo = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
-          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
-        });
-        const user = await userInfo.json();
+      const googleLogin = useGoogleLogin({
+        onSuccess: async (tokenResponse) => {
+            try {
+                const userInfo = await fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                    headers: {
+                        Authorization: `Bearer ${tokenResponse.access_token}`,
+                    },
+                });
 
-        const response = await fetch('https://healthstory.net.in/api/auth/googlelogin', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(user),
-        });
+                const user = await userInfo.json();
+                console.log('Google User Info:', user);
 
-        const data = await response.json();
-        if (response.ok) {
-          setToken(data.token);
-          localStorage.setItem('token', data.token);
-          alert('Google login successful');
-        } else {
-          alert(data.message);
-        }
-      } catch (err) {
-        console.error('Google Login Error', err);
-      }
-    },
-    onError: (error) => console.log('Google Login Failed:', error),
-  });
+                // You can now use user.email / user.name / user.picture etc.
+                // Send to your backend to handle login/register
+                const response = await fetch('https://prakritisa.com/api/auth/gogglelogin', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(user),
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    setToken(data.token);
+                    localStorage.setItem('token', data.token);
+                    alert('Google login successful');
+                     handleLoginSuccess();
+                } else {
+                    alert(data.message);
+                }
+            } catch (err) {
+                console.error('Google Login Error', err);
+            }
+        },
+        onError: (error) => {
+            console.log('Login Failed:', error);
+        },
+    });
 
   return (
     <div className="!min-h-screen !flex !flex-col md:!flex-row">
