@@ -88,9 +88,10 @@ const ProductDetail = () => {
 
 
 
-  const handleBuyNow = () => {
-    handleAddToCart();      // Step 1: Add to cart
-    navigate('/checkout');  // Step 2: Navigate to checkout
+  const handleBuyNow = (e) => {
+     
+    handleAddToCart(e);      
+    navigate('/checkout');  
   };
 
   //  add to cart 
