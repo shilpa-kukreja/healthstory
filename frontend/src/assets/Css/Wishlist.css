@@ -47,6 +47,14 @@
     object-fit: cover;
     border-radius: 8px;
   }
+
+  .wishlist_sidebar .wishlist-item h4{
+          display: -webkit-box;
+  -webkit-line-clamp: 2;         /* Show only 2 lines */
+  -webkit-box-orient: vertical;  /* Required for line-clamp to work */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  }
   
  
 .wishlist_sidebar .remove_icon{ display: flex; justify-content: space-between; margin-bottom: 30px; align-items: center;}
