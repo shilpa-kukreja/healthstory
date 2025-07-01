@@ -1112,3 +1112,14 @@
   align-items: center;
   justify-content: center;
 }
+
+
+
+.product-category-dropdown:hover{
+         display: block;
+         
+}
+
+.product-category-dropdown-container {
+  display: none;
+}

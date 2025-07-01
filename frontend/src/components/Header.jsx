@@ -167,11 +167,11 @@ const Header = () => {
             <Link to='/' onClick={() => setIsMenuOpen(false)}> Home </Link>
             <Link to='/about' onClick={() => setIsMenuOpen(false)}> About Us </Link>
 
-            <div className="dropdown" onMouseEnter={()=>setIsDropdownVisible(true)}  onMouseLeave={()=>setIsDropdownVisible(false)}  onClick={()=>setIsDropdownVisible(false)}  >
+            <div className="dropdown product-category-dropdown"   >
               <Link to='/product'><span className="dropdown-label">All Product</span></Link>
 
-             {isDropdownVisible && (
-               <div className="dropdown-content">
+           
+               <div className="dropdown-content product-category-dropdown-container">
                 <div className="grid_slides">
 
                   {subcategories.map((sub, id) => {
@@ -235,7 +235,7 @@ const Header = () => {
 
               </div>
 
-             )}
+       
              
 
             </div>
