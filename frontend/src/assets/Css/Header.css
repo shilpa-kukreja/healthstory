@@ -1117,9 +1117,20 @@
 
 .product-category-dropdown:hover{
          display: block;
-         
+
 }
 
 .product-category-dropdown-container {
   display: none;
+}
+
+@media screen and (max-width: 600px) and (min-width: 0px)  {
+  .product-category-dropdown-container {
+  display: none;
+}
+
+.product-category-dropdown:hover{
+         display: none;
+
+}
 }
