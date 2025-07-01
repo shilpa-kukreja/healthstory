@@ -96,7 +96,7 @@ const ShopContextProvider = (props) => {
         setProducts(response.data.products)
       }
     } catch (error) {
-      console.error("Error fetching Products:", err);
+      console.error("Error fetching Products:", error);
     }
   }
 
@@ -113,7 +113,7 @@ const ShopContextProvider = (props) => {
           setBlog(response.data.blogs)
        }
      } catch (error) {
-      console.error("Error fetching Products:", err); 
+      console.error("Error fetching Products:", error); 
      }
   }
 
