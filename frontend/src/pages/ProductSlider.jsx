@@ -105,7 +105,7 @@ const ProductSlider = ({ category }) => {
           className="mySwiper"
         >
           {showProduct.map((product, index) => {
-            const isInWishlist = wishlistItems.some(item => item.id === product._id);
+            const isInWishlist = wishlistItems.some(item => item._id === product._id);
             return (
               <SwiperSlide key={product._id || index}>
                 <div className="product-card">

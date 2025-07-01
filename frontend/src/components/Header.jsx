@@ -200,7 +200,7 @@ const Header = () => {
                               >
                                 <img  src={
                                   product.thumbImg
-                                    ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
+                                    ? `https://healthstory.net.in/uploads/thumbImg/${product.thumbImg}`
                                     : "/placeholder.jpg"
                                 } alt={product.name} className="img-main" />
 

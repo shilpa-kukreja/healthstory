@@ -86,6 +86,13 @@ const ProductDetail = () => {
     }
   };
 
+
+
+  const handleBuyNow = () => {
+    handleAddToCart();      // Step 1: Add to cart
+    navigate('/checkout');  // Step 2: Navigate to checkout
+  };
+
   //  add to cart 
 
 
@@ -347,7 +354,7 @@ const ProductDetail = () => {
 
               {/*  buy now btn  */}
               <div class=" buy_now">
-                <button type='submit' onClick={handleAddToCart} > Buy Now </button>
+                <button type='submit' onClick={handleBuyNow} > Buy Now </button>
               </div>
 
             </div>

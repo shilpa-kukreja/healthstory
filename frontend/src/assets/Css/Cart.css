@@ -83,7 +83,7 @@
 }
 
 .cart_content .cart_item .cart_img {
-    width: 100px;
+   min-width: 100px;
 }
 
 .cart_details {

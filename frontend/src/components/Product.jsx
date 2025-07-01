@@ -315,7 +315,7 @@ const Product = () => {
               <div className="category_product">
 
                 {filteredProducts.map(product => {
-                  const isInWishlist = wishlistItems.some(item => item.id === product._id);
+                  const isInWishlist = wishlistItems.some(item => item._id === product._id);
 
                   return (
                     <div key={product._id} className="product-card">
