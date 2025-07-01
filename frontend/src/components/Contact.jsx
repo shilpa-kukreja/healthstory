@@ -30,6 +30,7 @@ const Contact = () => {
       });
 
       const result = await response.json();
+      
       if (result.success) {
         setResult('');
         toast.success('Form Submitted Successfully');

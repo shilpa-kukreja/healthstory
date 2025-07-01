@@ -5,10 +5,10 @@ const addContact=async(req,res)=>{
       try {
         const contact=new contactModel(req.body);
         await contact.save();
-        res.status(201).json({message:"Contact added successfully"});
+        res.status(201).json({success: true, message:"Contact added successfully"});
       } catch (error) {
          console.log(error);
-         res.status(500).json({message:"Error adding contact"});
+         res.status(500).json({success: false,  message:"Error adding contact"});
       }
 }
 
