@@ -777,12 +777,12 @@ const AddProduct = () => {
                 setShowVariantFields(product.variant?.length > 0);
 
                 if (product.thumbImg) {
-                    setThumbImgPreview(`https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`);
+                    setThumbImgPreview(`https://healthstory.net.in/uploads/thumbImg/${product.thumbImg}`);
                 }
 
                 if (product.galleryImg?.length > 0) {
                     const galleryUrls = product.galleryImg.map(img =>
-                        typeof img === 'string' ? `https://healthstory.net.in/uploads/galleryimg/${img}` : img
+                        typeof img === 'string' ? `https://healthstory.net.in/uploads/galleryImg/${img}` : img
                     );
                     setGalleryPreviews(galleryUrls);
                 }

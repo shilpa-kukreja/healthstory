@@ -136,7 +136,7 @@ const ShopContextProvider = (props) => {
     const variantKey = selectedVariant?.size || null;
     const image =
       product.thumbImg
-        ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
+        ? `https://healthstory.net.in/uploads/thumbImg/${product.thumbImg}`
         : product.image
           ? `https://healthstory.net.in/uploads/${product.image}`
           : "/placeholder.jpg";

@@ -324,12 +324,12 @@ const Product = () => {
                         <Link to={`/product-details/${product._id}`}>
                           <img src={
                             product.thumbImg
-                              ? `https://healthstory.net.in/uploads/thumbimg/${product.thumbImg}`
+                              ? `https://healthstory.net.in/uploads/thumbImg/${product.thumbImg}`
                               : "/placeholder.jpg"
                           } alt={product.name} className="img-main" />
                           <img src={
                             product.galleryImg
-                              ? `https://healthstory.net.in/uploads/galleryimg/${product.galleryImg[0]}`
+                              ? `https://healthstory.net.in/uploads/galleryImg/${product.galleryImg[0]}`
                               : "/placeholder.jpg"
                           } alt={product.name} className="img-hover" />
                           
