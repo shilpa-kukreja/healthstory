@@ -29,9 +29,9 @@ import Subscription from './pages/Subscription';
 
 export const backendUrl=import.meta.env.VITE_BACKEND_URL
 const App = () => {
-  const [token,setToken]=useState(localStorage.getItem('token')?localStorage.getItem('token'):'')
+  const [token,setToken]=useState(localStorage.getItem('atoken')?localStorage.getItem('atoken'):'')
   useEffect(()=>{
-  localStorage.setItem('token',token)
+  localStorage.setItem('atoken',token)
   },[token])
   return (
     <div className='bg-gray-50 min-h-screen'>
