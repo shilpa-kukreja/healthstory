@@ -425,8 +425,8 @@ const ProductDetail = () => {
 
           {product.subcategory?.[0] === 'Protein Powder' && (
             <div className="Protein_content">
-              <div className=' flex  justify-between'>
-                <div className="col-half">
+              <div className=' flex  justify-between flex-col sm:flex-row ' >
+                <div className="col-half ">
 
 
                   <h3 className='text-3xl font-bold !mb-8 '>
@@ -434,7 +434,7 @@ const ProductDetail = () => {
                   </h3>
 
 
-                  <div className=' flex  gap-6 !mb-6  items-center' >
+                  <div className=' flex  gap-6 !mb-6  items-center w-[100%]' >
                     <img src={PurposefulNutrition} width="60px" alt="icon" />
                     <p>  Clean ingredients: Natural flavors and colours without any gums or emulsifiers to bring you the cleanest protein out there. </p>
                   </div>
@@ -460,12 +460,12 @@ const ProductDetail = () => {
 
                 </div>
 
-                <div className="col-half">
+                <div className="col-half order-[-1] sm:order-none">
                   <img src={image1} alt="mangoProteinImg" />
                 </div>
               </div>
 
-              <div className="flex justify-between  !my-6 ">
+              <div className="flex justify-between flex-col sm:flex-row  !my-6 ">
 
                 <div className="col-half ">
                   <img src={productbottomImg} alt=" proteinnutrution facts " />
@@ -473,7 +473,7 @@ const ProductDetail = () => {
                 <div className="col-half ">
 
                   <h2 className='text-3xl font-extrabold  border-b-2 !pb-3'>Consume it in 3 delicious ways:</h2>
-                  <div className='grid !grid-cols-3 gap-6 !my-5'>
+                  <div className='grid sm:!grid-cols-3 !grid-cols-1 gap-6 !my-5'>
 
                     <div>
                       <h3 className='text-2xl font-bold !text-[#e07000]'> 1. In a <br /> Shake:</h3>
@@ -548,7 +548,7 @@ const ProductDetail = () => {
           {/*  gummmies content  */}
           {product.subcategory?.[0] === "Gummies" && (
             <div className="gummies_content ">
-              <div className=' flex  justify-between'>
+              <div className=' flex  justify-between flex-col sm:flex-row ' >
                 <div className="col-half">
 
 
@@ -585,12 +585,12 @@ const ProductDetail = () => {
 
                 </div>
 
-                <div className="col-half">
+                <div className="col-half order-[-1] sm:order-none">
                   <img src={gummies} alt="gummmiesImg" />
                 </div>
               </div>
 
-              <div className="flex justify-between !my-10">
+              <div className="flex justify-between flex-col sm:flex-none !my-10">
 
                 <div className="col-half ">
                   <img src={gummiesbottomImg } alt=" proteinnutrution facts" />
@@ -600,7 +600,7 @@ const ProductDetail = () => {
                   <h2 className='text-3xl font-extrabold  border-b-2 !pb-3'> Enjoy Gummies in 3 Fun & Tasty Ways: </h2>
 
 
-                  <div className='grid !grid-cols-3 gap-6 !my-5'>
+                  <div className='grid sm:!grid-cols-3 !grid-cols-1 gap-6 !my-5'>
 
                     <div>
                       <h3 className='text-2xl font-bold !text-[#e07000]'>1. Snack on the Go:</h3>

@@ -132,6 +132,13 @@ img {
     width: 48%;
 }
 
+@media screen and (max-width: 768px) {
+    .col-half {
+        width: 100%;
+    }
+    
+}
+
 .col-2 {
     width: 20%;
 }
