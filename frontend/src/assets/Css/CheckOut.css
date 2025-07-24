@@ -189,10 +189,55 @@
           }
   .place_order_btn button:hover {
     background-color: #98bb96;
+  
   }
   
-  @media screen and  (max-width:600) {
+@media (max-width: 768px) {
+    .billing_details {
+      flex-direction: column; 
+      
+    
+      
+    }
+  
+    .checkout_form,
+    .order_information {
+      max-width: 100%;
+      flex: 1 1 100%;
+
+
+
+
+    }
 
    
+
+   
+  
+    .checkout_container .form_row {
+      flex-direction: column;
+    }
+  
+    .checkout_container .form_group {
+      min-width: 100%;
+    }
+  
+    .product_details ul {
+      flex-direction: column;
+    }
+  
+    .order_details ul {
+      flex-direction: column;
+    }
+    .order_details ul li {
+      justify-content: space-between;
+    }
+    .order_details ul li span {
+      margin-left: 0;
+    }
+   
+
     
   }
+
+ 
