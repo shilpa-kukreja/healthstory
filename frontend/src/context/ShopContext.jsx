@@ -13,11 +13,6 @@ const ShopContextProvider = (props) => {
 
 
 
-
-
-
-
-
   // Cart state
 
   const [showCart, setShowCart] = useState(false);
@@ -248,6 +243,38 @@ const ShopContextProvider = (props) => {
       setToken(localStorage.getItem("token"));
     }
   }, []);
+
+
+
+useEffect(() => {
+  const checkToken = async () => {
+    const localToken = localStorage.getItem("token");
+    if (!token && localToken) {
+      try {
+        const response = await axios.get("https://healthstory.net.in/api/auth/verify-token", {
+          headers: {
+            Authorization: `Bearer ${localToken}`,
+          },
+        });
+
+        if (response.data.valid) {
+          setToken(localToken);
+          console.log("Token is valid");
+        } else {
+          localStorage.removeItem("token");
+          setToken("");
+        }
+      } catch (error) {
+        console.log("Invalid or expired token");
+        localStorage.removeItem("token");
+        setToken("");
+      }
+    }
+  };
+
+  checkToken();
+}, []);
+
 
 
 

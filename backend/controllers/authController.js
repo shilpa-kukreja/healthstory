@@ -24,7 +24,7 @@ export const registerUser=async(req,res)=>{
 
           await newUser.save();
           const token=jwt.sign({id:newUser._id},process.env.JWT_SECRET,{
-            expiresIn: '7d',
+            expiresIn: '1m',
           });
           res.status(201).json({token,user:newUser})
 
@@ -33,6 +33,28 @@ export const registerUser=async(req,res)=>{
          res.status(500).json({ message: 'Something went wrong' });
     }
 }
+
+
+
+//verify token route
+
+export const verifyToken = async (req, res) => {
+  const authHeader = req.headers.authorization;
+
+  if (!authHeader || !authHeader.startsWith('Bearer ')) {
+    return res.status(401).json({ message: 'Authorization header missing or malformed' });
+  }
+
+  const token = authHeader.split(' ')[1];
+
+  try {
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    return res.status(200).json({ valid: true, userId: decoded.id });
+  } catch (err) {
+    return res.status(401).json({ valid: false, message: 'Invalid or expired token' });
+  }
+};
+
 
 
 //user login code
@@ -59,7 +81,7 @@ export const loginUser = async (req, res) => {
 
       
         const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-            expiresIn: '7d',
+            expiresIn: '1m',
         });
 
         res.status(200).json({ token, user });
