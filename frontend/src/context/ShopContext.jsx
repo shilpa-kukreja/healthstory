@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { products, category, subcategory } from '../assets/assets';
+import jwt_decode from "jwt-decode";
 import axios from "axios";
 
 import { blog } from '../assets/blog'
@@ -276,6 +277,45 @@ useEffect(() => {
 }, []);
 
 
+
+
+// useEffect(() => {
+//   const localToken = localStorage.getItem("token");
+
+//   if (localToken) {
+//     try {
+//       const decoded = jwt_decode(localToken);
+
+//       const currentTime = Date.now() / 1000; // seconds
+//       const timeLeft = decoded.exp - currentTime;
+
+//       if (timeLeft <= 0) {
+//         // Token already expired
+//         localStorage.removeItem("token");
+//         setToken("");
+//         console.log("Token already expired");
+//       } else {
+//         // Set the token
+//         setToken(localToken);
+//         console.log("Token is valid");
+
+//         // Auto-remove token after remaining time
+//         const timer = setTimeout(() => {
+//           localStorage.removeItem("token");
+//           setToken("");
+//           console.log("Token expired, removed automatically");
+//         }, timeLeft * 1000); // convert to ms
+
+//         // Optional: Clear timeout on unmount
+//         return () => clearTimeout(timer);
+//       }
+//     } catch (error) {
+//       console.error("Invalid token");
+//       localStorage.removeItem("token");
+//       setToken("");
+//     }
+//   }
+// }, []);
 
 
 
