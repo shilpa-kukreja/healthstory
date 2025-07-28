@@ -23,7 +23,7 @@ const ReturnRefundPolicy = () => {
                     <div className="privacy_inner_content">
 
                         <div className="title">
-                            <h4>  GLOBAL RETURN AND REFUND POLICY FOR PRAKRITISA  </h4>
+                            <h4>  GLOBAL RETURN AND REFUND POLICY FOR HEALTHSTORY </h4>
                         </div>
                         <div className="common_para">
                             <p>   This Privacy Policy describes how Albelee (the \"Site,\" \"we,\" \"us,\" or \"our\") collects, uses, and discloses your personal information when you visit, use our services, or make a purchase from https://albelee.in (the \"Site\") or otherwise communicate with us (collectively, the \"Services\"). For purposes of this Privacy Policy, \"you\" and \"your\" mean you as the user of the Services, whether you are a customer, website visitor, or another individual whose information we have collected pursuant to this Privacy Policy.</p>
@@ -124,6 +124,30 @@ const ReturnRefundPolicy = () => {
                                 When you visit our site, open or click on emails we send you, or interact with our services or advertisements, we, or third parties we work with, may automatically collect certain information using online tracking technologies such as pixels, web beacons, software developer kits, third-party libraries, and cookies.
                             </p>
                         </div>
+
+                          <div className="title">
+                        <h4>CANCELLATION AND REFUND POLICY</h4>
+                    </div>
+                    <div className="common_para">
+                        <p><strong>Order Cancellation:</strong> Orders once placed can only be cancelled within <strong>2 hours</strong> of placement. Please contact our support immediately to request a cancellation. Orders already processed or shipped cannot be cancelled.</p>
+
+                        <p><strong>Refunds:</strong> Refunds are processed only in the following cases:</p>
+                        <ul style={{ marginLeft: "20px", listStyleType: "disc" }}>
+                            <li>Product received is defective or damaged.</li>
+                            <li>Wrong item was delivered.</li>
+                            <li>Product was not delivered even after 10 business days.</li>
+                        </ul>
+
+                        <p>All refund requests must be raised within <strong>48 hours of product delivery</strong> with valid proof (such as photos, order ID, etc.).</p>
+
+                        <p>Refunds will be processed to the original mode of payment within <strong>7-10 business days</strong> after verification and approval.</p>
+
+                        <p><strong>Non-refundable items:</strong></p>
+                        <ul style={{ marginLeft: "20px", listStyleType: "disc" }}>
+                            <li>Items returned without original packaging or used items.</li>
+                            <li>Perishable goods or personalized/customized products.</li>
+                        </ul>
+                    </div>
 
                         <div className="title">
                             <h4> Contact </h4>
