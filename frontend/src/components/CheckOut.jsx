@@ -178,6 +178,7 @@ const CheckOut = () => {
                             { orderData, orderid: razorpayOrder.id }, // ✅ now orderData is available
                             { headers: { token } }
                         );
+                        console.log(shipRes.data);
 
                         if (shipRes.data.success) {
                             toast.success("Payment verified and order placed!");
