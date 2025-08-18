@@ -99,7 +99,7 @@ const CheckOut = () => {
             key: import.meta.env.VITE_RAZORPAY_KEY_ID,
             amount: order.amount,
             currency: order.currency,
-            name: "Order Payment",
+            name: "Health Story",
             description: "Order Payment",
             order_id: order.id,
             receipt: order.receipt,
