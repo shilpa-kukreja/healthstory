@@ -112,7 +112,32 @@ const CheckOut = () => {
                         response,
                         { headers: { token } }
                     );
-                    if (data.success) {
+
+                     if (data.success) {
+            try {
+              const shipRes = await axios.post(
+                "https://ishmiherbal.com/api/order/ship",
+                { orderData, orderid: order.id },
+                { headers: { token } }
+              );
+
+              if (shipRes.data.success) {
+                
+                
+                toast.success("Payment verified and order placed!");
+                navigate(`/orders/${order.id}`); // Redirect to the order details page");
+                setCartItems([]);
+              } else {
+                toast.error("Shipping failed after payment.");
+              }
+            } catch (shipErr) {
+              console.error(shipErr);
+              toast.error("Shipping error after payment.");
+            }
+          } else {
+            toast.error(data.message || "Payment verification failed.");
+          }
+                    // if (data.success) {
             // // 1. Get Shiprocket Auth Token
             //    const authRes = await axios.post(
             //   'https://apiv2.shiprocket.in/v1/external/auth/login',
@@ -196,9 +221,9 @@ const CheckOut = () => {
             // );
       
             // console.log("Shiprocket Response:", shipRes.data);
-                        navigate(`/orders/${order.id}`); // Redirect to the order details page");
-                        setCartItems([]);
-                    }
+                    //     navigate(`/orders/${order.id}`); // Redirect to the order details page");
+                    //     setCartItems([]);
+                    // }
                 } catch (error) {
                     console.log(error);
                     toast.error(error);
@@ -268,6 +293,8 @@ const CheckOut = () => {
 
             if (response.data.success) {
                 const orderid = response.data.orderid; // Get order from backend response
+
+                
             
 
                 // // 2. Authenticate with Shiprocket
