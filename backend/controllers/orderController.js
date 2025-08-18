@@ -4,6 +4,7 @@ import userModel from "../models/authmodel.js";
 import orderModel from "../models/orderModel.js";
 import { v4 as uuidv4 } from 'uuid';
 import nodemailer from 'nodemailer';
+import axios from "axios";
 
 
 // Initialize Razorpay instance
