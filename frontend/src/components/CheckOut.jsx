@@ -245,6 +245,7 @@ const CheckOut = () => {
                 amount: cartTotal,
                 couponCode,
                 discount,
+                paymentMethod: method,
             };
 
             console.log(orderData);

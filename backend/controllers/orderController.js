@@ -373,104 +373,199 @@ const updateStatus = async (req, res) => {
 }
 
 
-const ShipOrders = async (req,res)=>{
-  try {
-       const { orderData,orderid } = req.body;
+// const ShipOrders = async (req,res)=>{
+//   try {
+//        const { orderData,orderid } = req.body;
 
             
             
-            const authRes = await axios.post(
-              'https://apiv2.shiprocket.in/v1/external/auth/login',
-              {
-                email: "imnehasingh1986@gmail.com",
-                password: "Poonam94!"
-              },
-              {
-                headers: { 'Content-Type': 'application/json' }
-              }
-            );
+//             const authRes = await axios.post(
+//               'https://apiv2.shiprocket.in/v1/external/auth/login',
+//               {
+//                 email: "imnehasingh1986@gmail.com",
+//                 password: "Poonam94!"
+//               },
+//               {
+//                 headers: { 'Content-Type': 'application/json' }
+//               }
+//             );
 
-            const shiprokettoken = authRes.data.token;
+//             const shiprokettoken = authRes.data.token;
             
  
-            console.log(shiprokettoken);
+//             console.log(shiprokettoken);
 
-            // 2. Prepare shipping order payload
+//             // 2. Prepare shipping order payload
 
-            const formatDate = (timestamp) => {
-              const date = new Date(timestamp);
-              const yyyy = date.getFullYear();
-              const mm = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
-              const dd = String(date.getDate()).padStart(2, '0');
-              const hh = String(date.getHours()).padStart(2, '0');
-              const min = String(date.getMinutes()).padStart(2, '0');
-              return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
-            };
+//             const formatDate = (timestamp) => {
+//               const date = new Date(timestamp);
+//               const yyyy = date.getFullYear();
+//               const mm = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
+//               const dd = String(date.getDate()).padStart(2, '0');
+//               const hh = String(date.getHours()).padStart(2, '0');
+//               const min = String(date.getMinutes()).padStart(2, '0');
+//               return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+//             };
 
-            const currentDate = Date.now();
-            var currentDatetime = formatDate(currentDate)
-            // Get the current timestamp
+//             const currentDate = Date.now();
+//             var currentDatetime = formatDate(currentDate)
+//             // Get the current timestamp
 
-            console.log(orderData)
+//             console.log(orderData)
 
-            const orderPayload = {
-              order_id: orderid, // Order ID   
-              order_date: currentDatetime, // Current datetime in "yyyy-mm-dd hh:mm" format
-              pickup_location: "GGN-08", // Static pickup location
-              comment: "",
-              billing_customer_name: orderData.address.firstName, // Billing first name from order data
-              billing_last_name: orderData.address.lastName, // Billing last name from order data
-              billing_address: orderData.address.street, // Billing address from order data
-              billing_address_2: "Near Hokage House", // Static second billing address
-              billing_city: orderData.address.city, // Billing city from order data
-              billing_pincode:orderData.address.zipcode, // Billing pincode from order data
-              billing_state: orderData.address.state, // Billing state from order data
-              billing_country: orderData.address.country, // Billing country from order data
-              billing_email: orderData.address.email, // Billing email from order data
-              billing_phone: orderData.address.phone, // Billing phone from order data
-              shipping_is_billing: true, // Assuming shipping is the same as billing
-              order_items: orderData.items.map(item => ({
-                name: item.name, // Item name from order data
-                sku: item._id, // SKU from order data
-                units: item.quantity, // Item quantity from order data
-                selling_price: item.discountedprice, // Discounted price from order data
-                hsn: 441122 // Static HSN code (could be dynamic based on your needs)
-              })),
-             payment_method: orderData.paymentMethod === "razorpay" ? "prepaid" : "postpaid",  // Payment method from order data
-              shipping_charges: 0, // Assuming no shipping charges
-              giftwrap_charges: 0, // Assuming no giftwrap charges
-              transaction_charges: 0, // Assuming no transaction charges
-              total_discount: 0, // Assuming no discount
-              sub_total: orderData.amount.toFixed(2), // Subtotal from order data
-              length: 8, // Static length (you can update based on actual data)
-              breadth: 8, // Static breadth (you can update based on actual data)
-              height: 3.5, // Static height (you can update based on actual data)
-              weight: 0.2 // Static weight (you can update based on actual data)
-            };
-            console.log(orderPayload)
+//             const orderPayload = {
+//               order_id: orderid, // Order ID   
+//               order_date: currentDatetime, // Current datetime in "yyyy-mm-dd hh:mm" format
+//               pickup_location: "GGN-08", // Static pickup location
+//               comment: "",
+//               billing_customer_name: orderData.address.firstName, // Billing first name from order data
+//               billing_last_name: orderData.address.lastName, // Billing last name from order data
+//               billing_address: orderData.address.street, // Billing address from order data
+//               billing_address_2: "Near Hokage House", // Static second billing address
+//               billing_city: orderData.address.city, // Billing city from order data
+//               billing_pincode:orderData.address.zipcode, // Billing pincode from order data
+//               billing_state: orderData.address.state, // Billing state from order data
+//               billing_country: orderData.address.country, // Billing country from order data
+//               billing_email: orderData.address.email, // Billing email from order data
+//               billing_phone: orderData.address.phone, // Billing phone from order data
+//               shipping_is_billing: true, // Assuming shipping is the same as billing
+//               order_items: orderData.items.map(item => ({
+//                 name: item.name, // Item name from order data
+//                 sku: item._id, // SKU from order data
+//                 units: item.quantity, // Item quantity from order data
+//                 selling_price: item.discountedprice, // Discounted price from order data
+//                 hsn: 441122 // Static HSN code (could be dynamic based on your needs)
+//               })),
+//              payment_method: orderData.paymentMethod === "razorpay" ? "prepaid" : "postpaid",  // Payment method from order data
+//               shipping_charges: 0, // Assuming no shipping charges
+//               giftwrap_charges: 0, // Assuming no giftwrap charges
+//               transaction_charges: 0, // Assuming no transaction charges
+//               total_discount: 0, // Assuming no discount
+//               sub_total: orderData.amount.toFixed(2), // Subtotal from order data
+//               length: 8, // Static length (you can update based on actual data)
+//               breadth: 8, // Static breadth (you can update based on actual data)
+//               height: 3.5, // Static height (you can update based on actual data)
+//               weight: 0.2 // Static weight (you can update based on actual data)
+//             };
+//             console.log(orderPayload)
 
-            // 3. Create Shiprocket Order
-            const shipRes = await axios.post('https://apiv2.shiprocket.in/v1/external/orders/create/adhoc',
-              orderPayload,
-              {
-                headers: {
-                  'Content-Type': 'application/json',
-                  'Authorization': `Bearer ${shiprokettoken}`
-                }
-              }
-            );
+//             // 3. Create Shiprocket Order
+//             const shipRes = await axios.post('https://apiv2.shiprocket.in/v1/external/orders/create/adhoc',
+//               orderPayload,
+//               {
+//                 headers: {
+//                   'Content-Type': 'application/json',
+//                   'Authorization': `Bearer ${shiprokettoken}`
+//                 }
+//               }
+//             );
 
-            console.log("Shiprocket Response:", shipRes.data.orderData);
-
-
-            res.json({success:true,message:"Order Ship Successfully"});
+//             console.log("Shiprocket Response:", shipRes.data.orderData);
 
 
+//             res.json({success:true,message:"Order Ship Successfully"});
+
+
+//   } catch (error) {
+//     console.log(error);
+//      res.json({ success: false, message: error.message });
+//   }
+// }
+
+
+const ShipOrders = async (req, res) => {
+  try {
+    const { orderData, orderid } = req.body;
+
+    // 1. Authenticate with Shiprocket
+    const authRes = await axios.post(
+      "https://apiv2.shiprocket.in/v1/external/auth/login",
+      {
+        email: "imnehasingh1986@gmail.com",
+        password: "Poonam94!"
+      },
+      { headers: { "Content-Type": "application/json" } }
+    );
+
+    const shiprokettoken = authRes.data.token;
+    console.log("Shiprocket Token:", shiprokettoken);
+
+    // 2. Format date
+    const formatDate = (timestamp) => {
+      const date = new Date(timestamp);
+      const yyyy = date.getFullYear();
+      const mm = String(date.getMonth() + 1).padStart(2, "0");
+      const dd = String(date.getDate()).padStart(2, "0");
+      const hh = String(date.getHours()).padStart(2, "0");
+      const min = String(date.getMinutes()).padStart(2, "0");
+      return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
+    };
+    const currentDatetime = formatDate(Date.now());
+
+    // 3. Build payload
+    const orderPayload = {
+      order_id: orderid,
+      order_date: currentDatetime,
+      pickup_location: "GGN-08",
+      comment: "",
+      billing_customer_name: orderData.address.firstName,
+      billing_last_name: orderData.address.lastName,
+      billing_address: orderData.address.street,
+      billing_address_2: "Near Hokage House",
+      billing_city: orderData.address.city,
+      billing_pincode: orderData.address.zipcode,
+      billing_state: orderData.address.state,
+      billing_country: orderData.address.country,
+      billing_email: orderData.address.email,
+      billing_phone: orderData.address.phone,
+      shipping_is_billing: true,
+      order_items: orderData.items.map(item => ({
+        name: item.name,
+        sku: item._id,
+        units: item.quantity,
+        selling_price: item.price,   // ✅ fixed
+        hsn: 441122
+      })),
+      payment_method: orderData.paymentMethod === "razorpay" ? "prepaid" : "postpaid", // ✅ now will exist
+      shipping_charges: 0,
+      giftwrap_charges: 0,
+      transaction_charges: 0,
+      total_discount: 0,
+      sub_total: orderData.amount.toFixed(2),
+      length: 8,
+      breadth: 8,
+      height: 3.5,
+      weight: 0.2
+    };
+
+    console.log("Shiprocket Payload:", orderPayload);
+
+    // 4. Call Shiprocket API
+    const shipRes = await axios.post(
+      "https://apiv2.shiprocket.in/v1/external/orders/create/adhoc",
+      orderPayload,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${shiprokettoken}`
+        }
+      }
+    );
+
+    console.log("Shiprocket Response:", shipRes.data);
+
+    // 5. Return to frontend
+    if (shipRes.data && shipRes.data.shipment_id) {
+      res.json({ success: true, message: "Order shipped successfully", shiprocket: shipRes.data });
+    } else {
+      res.json({ success: false, message: shipRes.data.message || "Failed to create shipment" });
+    }
   } catch (error) {
-    console.log(error);
-     res.json({ success: false, message: error.message });
+    console.error("Shiprocket Error:", error.response?.data || error.message);
+    res.json({ success: false, message: error.response?.data?.message || error.message });
   }
-}
+};
+
 
 
 export { placeOrderCOD, placeOrderRazorpay, verifyRazorpay, allOrders, userOrders, updateStatus, getSingleOrder, userSingleOrder, ShipOrders };
