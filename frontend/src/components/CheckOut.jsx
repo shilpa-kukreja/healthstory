@@ -94,148 +94,117 @@ const CheckOut = () => {
 
 
 
-     const initPay = (order) => {
-        const options = {
-            key: import.meta.env.VITE_RAZORPAY_KEY_ID,
-            amount: order.amount,
-            currency: order.currency,
-            name: "Health Story",
-            description: "Order Payment",
-            order_id: order.id,
-            receipt: order.receipt,
-            handler: async (response) => {
-                console.log(response);
-                try {
-                    setLoading(true);
-                    const { data } = await axios.post(
-                        "https://healthstory.net.in/api/order/verifyRazorpay",
-                        response,
-                        { headers: { token } }
-                    );
+    //  const initPay = (order) => {
+    //     const options = {
+    //         key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+    //         amount: order.amount,
+    //         currency: order.currency,
+    //         name: "Health Story",
+    //         description: "Order Payment",
+    //         order_id: order.id,
+    //         receipt: order.receipt,
+    //         handler: async (response) => {
+    //             console.log(response);
+    //             try {
+    //                 setLoading(true);
+    //                 const { data } = await axios.post(
+    //                     "https://healthstory.net.in/api/order/verifyRazorpay",
+    //                     response,
+    //                     { headers: { token } }
+    //                 );
 
-                     if (data.success) {
+    //                  if (data.success) {
+    //         try {
+    //           const shipRes = await axios.post(
+    //             "https://healthstory.net.in/api/order/ship",
+    //             { orderData, orderid: order.id },
+    //             { headers: { token } }
+    //           );
+
+    //           if (shipRes.data.success) {
+                
+                
+    //             toast.success("Payment verified and order placed!");
+    //             navigate(`/orders/${order.id}`); // Redirect to the order details page");
+    //             setCartItems([]);
+    //           } else {
+    //             toast.error("Shipping failed after payment.");
+    //           }
+    //         } catch (shipErr) {
+    //           console.error(shipErr);
+    //           toast.error("Shipping error after payment.");
+    //         }
+    //       } else {
+    //         toast.error(data.message || "Payment verification failed.");
+    //       }
+                   
+    //             } catch (error) {
+    //                 console.log(error);
+    //                 toast.error(error);
+    //             } finally {
+    //                 setLoading(false); // stop loader if needed
+    //             }
+    //         },
+    //     };
+    //     const rzp = new window.Razorpay(options); // This is the correct way
+    //     rzp.open();
+    // };
+
+  const initPay = (order) => {
+    const { orderData, ...razorpayOrder } = order; // ✅ extract orderData
+
+    const options = {
+        key: import.meta.env.VITE_RAZORPAY_KEY_ID,
+        amount: razorpayOrder.amount,
+        currency: razorpayOrder.currency,
+        name: "Health Story",
+        description: "Order Payment",
+        order_id: razorpayOrder.id,
+        receipt: razorpayOrder.receipt,
+        handler: async (response) => {
+            console.log(response);
             try {
-              const shipRes = await axios.post(
-                "https://ishmiherbal.com/api/order/ship",
-                { orderData, orderid: order.id },
-                { headers: { token } }
-              );
+                setLoading(true);
+                const { data } = await axios.post(
+                    "https://healthstory.net.in/api/order/verifyRazorpay",
+                    response,
+                    { headers: { token } }
+                );
 
-              if (shipRes.data.success) {
-                
-                
-                toast.success("Payment verified and order placed!");
-                navigate(`/orders/${order.id}`); // Redirect to the order details page");
-                setCartItems([]);
-              } else {
-                toast.error("Shipping failed after payment.");
-              }
-            } catch (shipErr) {
-              console.error(shipErr);
-              toast.error("Shipping error after payment.");
-            }
-          } else {
-            toast.error(data.message || "Payment verification failed.");
-          }
-                    // if (data.success) {
-            // // 1. Get Shiprocket Auth Token
-            //    const authRes = await axios.post(
-            //   'https://apiv2.shiprocket.in/v1/external/auth/login',
-            //   {
-            //     email: "apiuser@prakritisa.com",
-            //     password: "@Z4hCn4943NXQ#n$aR"
-            //   },
-            //   {
-            //     headers: { 'Content-Type': 'application/json' }
-            //   }
-            // );
-      
-            // const shiprokettoken = authRes.data.token;
+                if (data.success) {
+                    try {
+                        const shipRes = await axios.post(
+                            "https://healthstory.net.in/api/order/ship",
+                            { orderData, orderid: razorpayOrder.id }, // ✅ now orderData is available
+                            { headers: { token } }
+                        );
 
-            // // console.log(shiprokettoken);
-          
-            // // 2. Prepare shipping order payload
-
-            // const formatDate = (timestamp) => {
-            //   const date = new Date(timestamp);
-            //   const yyyy = date.getFullYear();
-            //   const mm = String(date.getMonth() + 1).padStart(2, '0'); // Month is 0-based
-            //   const dd = String(date.getDate()).padStart(2, '0');
-            //   const hh = String(date.getHours()).padStart(2, '0');
-            //   const min = String(date.getMinutes()).padStart(2, '0');
-            //   return `${yyyy}-${mm}-${dd} ${hh}:${min}`;
-            // };
-            
-            // const currentDate = Date.now();
-            // var currentDatetime  = formatDate(currentDate)
-            // // Get the current timestamp
-            
-            // console.log('order', order)
-
-            // const orderPayload = {
-            //   order_id: order.id, // Order ID
-            //   order_date: currentDatetime, // Current datetime in "yyyy-mm-dd hh:mm" format
-            //   pickup_location: "work", // Static pickup location
-            //   comment: "", 
-            //   billing_customer_name: order.orderData.address.firstName, // Billing first name from order data
-            //   billing_last_name: order.orderData.address.lastName, // Billing last name from order data
-            //   billing_address: order.orderData.address.street, // Billing address from order data
-            //   billing_address_2: "Near Hokage House", // Static second billing address
-            //   billing_city: order.orderData.address.city, // Billing city from order data
-            //   billing_pincode: order.orderData.address.zipcode, // Billing pincode from order data
-            //   billing_state: order.orderData.address.state, // Billing state from order data
-            //   billing_country: order.orderData.address.country, // Billing country from order data
-            //   billing_email: order.orderData.address.email, // Billing email from order data
-            //   billing_phone: order.orderData.address.phone, // Billing phone from order data
-            //   shipping_is_billing: true, // Assuming shipping is the same as billing
-            //   order_items: order.orderData.items.map(item => ({
-            //     name: item.name, // Item name from order data
-            //     sku: item._id, // SKU from order data
-            //     units: item.quantity, // Item quantity from order data
-            //     selling_price: item.price, // Discounted price from order data
-            //     hsn: 441122 // Static HSN code (could be dynamic based on your needs)
-            //   })),
-            //   payment_method: 'prepaid', // Payment method from order data
-            //   shipping_charges: 0, // Assuming no shipping charges
-            //   giftwrap_charges: 0, // Assuming no giftwrap charges
-            //   transaction_charges: 0, // Assuming no transaction charges
-            //   total_discount: 0, // Assuming no discount
-            //   sub_total: order.orderData.amount, // Subtotal from order data
-            //   length: 8, // Static length (you can update based on actual data)
-            //   breadth: 8, // Static breadth (you can update based on actual data)
-            //   height: 3.5, // Static height (you can update based on actual data)
-            //   weight: 0.2 // Static weight (you can update based on actual data)
-            // };
-            // console.log(orderPayload)
-      
-            // // 3. Create Shiprocket Order
-            // const shipRes = await axios.post(
-            //   'https://apiv2.shiprocket.in/v1/external/orders/create/adhoc',
-            //   orderPayload,
-            //   {
-            //     headers: {
-            //       'Content-Type': 'application/json',
-            //       'Authorization': `Bearer ${shiprokettoken}`
-            //     }
-            //   }
-            // );
-      
-            // console.log("Shiprocket Response:", shipRes.data);
-                    //     navigate(`/orders/${order.id}`); // Redirect to the order details page");
-                    //     setCartItems([]);
-                    // }
-                } catch (error) {
-                    console.log(error);
-                    toast.error(error);
-                } finally {
-                    setLoading(false); // stop loader if needed
+                        if (shipRes.data.success) {
+                            toast.success("Payment verified and order placed!");
+                            navigate(`/orders/${razorpayOrder.id}`);
+                            setCartItems([]);
+                        } else {
+                            toast.error("Shipping failed after payment.");
+                        }
+                    } catch (shipErr) {
+                        console.error(shipErr);
+                        toast.error("Shipping error after payment.");
+                    }
+                } else {
+                    toast.error(data.message || "Payment verification failed.");
                 }
-            },
-        };
-        const rzp = new window.Razorpay(options); // This is the correct way
-        rzp.open();
+            } catch (error) {
+                console.log(error);
+                toast.error(error.message || "Payment error");
+            } finally {
+                setLoading(false);
+            }
+        },
     };
 
+    const rzp = new window.Razorpay(options);
+    rzp.open();
+};
 
 
     const onSubmitHandler = async (event) => {
