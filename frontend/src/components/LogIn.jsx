@@ -7,7 +7,7 @@ import { ShopContext } from "../context/ShopContext";
 const OTPLogin = () => {
   const [phone, setPhone] = useState("");
   const [otp, setOtp] = useState(new Array(6).fill(""));
-  const [step, setStep] = useState("otp"); // phone | otp
+  const [step, setStep] = useState("phone"); // phone | otp
   const [loading, setLoading] = useState(false);
   const [resendTimer, setResendTimer] = useState(0);
 
