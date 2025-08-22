@@ -26,7 +26,7 @@ const OTPLogin = () => {
       const response = await fetch("https://healthstory.net.in/api/auth/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone }),
+        body: JSON.stringify({ number : phone }),
       });
 
       const data = await response.json();
