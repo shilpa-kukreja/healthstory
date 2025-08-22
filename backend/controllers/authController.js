@@ -3,6 +3,8 @@ import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import sendEmail from '../utils/sendEmail.js';
 import userModel from '../models/authmodel.js';
+import userModel from '../models/userModel.js';
+import VerifiedNumberModel from '../models/VerifiedNumberModel.js';
 
 
 
@@ -89,6 +91,106 @@ export const loginUser = async (req, res) => {
         console.log(error);
         res.status(500).json({ message: 'Something went wrong' });
     }
+};
+// router.post("/send-otp", 
+
+// // send OTP API
+// export const loginotp= async (req, res) => {
+//   try {
+//     const { number, otp } = req.body; // number: user ka phone number, otp: random OTP
+
+//     const response = await axios.post(
+//       "https://www.fast2sms.com/dev/bulkV2",
+//       {
+//         route: "dlt",
+//         sender_id: "HELSTR",
+//         message: "195392",   // aapka DLT template ID
+//         variables_values: otp, // OTP yaha jayega
+//         numbers: number,
+//       },
+//       {
+//         headers: {
+//           authorization: "QH9YaUqbhOISv5y1g32wCjiDe7fFRJkTl6ru8tdnBLXGEKsWoZehYv31dD7z4MHPZIsWUj0pK2EOCXxi",
+//           "Content-Type": "application/json",
+//         },
+//       }
+//     );
+
+//     res.json({ success: true, data: response.data });
+//   } catch (error) {
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// };
+
+
+
+function generateOTP() {
+  let otp = "";
+  for (let i = 0; i < 6; i++) {
+    otp += Math.floor(Math.random() * 10);
+  }
+  return otp;
+}
+
+export const loginotp = async (req, res) => {
+  try {
+    const { number } = req.body;
+    const otp = generateOTP();
+
+    // OTP DB me save
+    await userModel.create({ number, otp });
+
+    // Fast2SMS API call
+    await axios.post(
+      "https://www.fast2sms.com/dev/bulkV2",
+      {
+        route: "dlt",
+        sender_id: "HELSTR",
+        message: "195392", // Aapka DLT template ID
+        variables_values: otp,
+        numbers: number,
+      },
+      {
+        headers: {
+          authorization: process.env.FAST2SMS_API_KEY,
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    res.json({ success: true, message: "OTP sent successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+};
+
+
+
+// router.post("/verify-otp",
+
+export const verifyotp= async (req, res) => {
+  try {
+    const { number, otp } = req.body;
+
+    const otpRecord = await userModel.findOne({ number, otp });
+    if (!otpRecord) {
+      return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
+    }
+
+    // Number verified collection me save
+    await VerifiedNumberModel.updateOne(
+      { number },
+      { number, verifiedAt: new Date() },
+      { upsert: true }
+    );
+
+    // OTP record delete kar do
+    await userModel.deleteMany({ number });
+
+    res.json({ success: true, message: "Number verified successfully" });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
 };
 
 //api gogglelogin
