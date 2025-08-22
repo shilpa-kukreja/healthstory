@@ -3,7 +3,7 @@ import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import sendEmail from '../utils/sendEmail.js';
 import userModel from '../models/authmodel.js';
-import userModel from '../models/userModel.js';
+import newuserModel from '../models/userModel.js';
 import VerifiedNumberModel from '../models/VerifiedNumberModel.js';
 
 
@@ -138,7 +138,7 @@ export const loginotp = async (req, res) => {
     const otp = generateOTP();
 
     // OTP DB me save
-    await userModel.create({ number, otp });
+    await newuserModel.create({ number, otp });
 
     // Fast2SMS API call
     await axios.post(
@@ -172,7 +172,7 @@ export const verifyotp= async (req, res) => {
   try {
     const { number, otp } = req.body;
 
-    const otpRecord = await userModel.findOne({ number, otp });
+    const otpRecord = await newuserModel.findOne({ number, otp });
     if (!otpRecord) {
       return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
     }
@@ -185,7 +185,7 @@ export const verifyotp= async (req, res) => {
     );
 
     // OTP record delete kar do
-    await userModel.deleteMany({ number });
+    await newuserModel.deleteMany({ number });
 
     res.json({ success: true, message: "Number verified successfully" });
   } catch (error) {
