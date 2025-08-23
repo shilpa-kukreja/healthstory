@@ -169,26 +169,68 @@ export const loginotp = async (req, res) => {
 
 // router.post("/verify-otp",
 
-export const verifyotp= async (req, res) => {
+// export const verifyotp= async (req, res) => {
+//   try {
+//     const { number, otp } = req.body;
+
+//     const otpRecord = await newuserModel.findOne({ number, otp });
+//     if (!otpRecord) {
+//       return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
+//     }
+
+//     // Number verified collection me save
+//     await VerifiedNumberModel.updateOne(
+//       { number },
+//       { number, verifiedAt: new Date() },
+//       { upsert: true }
+//     );
+
+//     // OTP record delete kar do
+//     await newuserModel.deleteMany({ number });
+//    const token=jwt.sign({id:newUser._id},process.env.JWT_SECRET,{
+//             expiresIn: '30d',
+//           });
+
+//     res.json({ success: true, message: "Number verified successfully" });
+//   } catch (error) {
+//     res.status(500).json({ success: false, error: error.message });
+//   }
+// };
+
+export const verifyotp = async (req, res) => {
   try {
     const { number, otp } = req.body;
 
+    // Check OTP record
     const otpRecord = await newuserModel.findOne({ number, otp });
     if (!otpRecord) {
-      return res.status(400).json({ success: false, message: "Invalid or expired OTP" });
+      return res
+        .status(400)
+        .json({ success: false, message: "Invalid or expired OTP" });
     }
 
-    // Number verified collection me save
+    // Save number to verified collection
     await VerifiedNumberModel.updateOne(
       { number },
       { number, verifiedAt: new Date() },
       { upsert: true }
     );
 
-    // OTP record delete kar do
+    // Delete OTP records for this number
     await newuserModel.deleteMany({ number });
 
-    res.json({ success: true, message: "Number verified successfully" });
+    // ✅ Generate JWT token using otpRecord._id
+    const token = jwt.sign(
+      { id: otpRecord._id, number: otpRecord.number },
+      process.env.JWT_SECRET,
+      { expiresIn: "30d" }
+    );
+
+    res.json({
+      success: true,
+      message: "Number verified successfully",
+      token,
+    });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
