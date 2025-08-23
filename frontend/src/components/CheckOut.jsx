@@ -233,32 +233,32 @@ const initPay = (order) => {
         );
 
         if (data.success) {
-          try {
-            // ✅ Step 2: Create shipment
-            const shipRes = await axios.post(
-              "https://healthstory.net.in/api/order/ship",
-              { orderData, orderid: razorpayOrder.id },
-              { headers: { token } }
-            );
+          // try {
+            // // ✅ Step 2: Create shipment
+            // const shipRes = await axios.post(
+            //   "https://healthstory.net.in/api/order/ship",
+            //   { orderData, orderid: razorpayOrder.id },
+            //   { headers: { token } }
+            // );
 
-            console.log("Shipping Response:", shipRes.data);
+            // console.log("Shipping Response:", shipRes.data);
 
-            if (shipRes.data.success) {
+            // if (shipRes.data.success) {
               toast.success("✅ Payment verified and order placed!");
               navigate(`/orders/${razorpayOrder.id}`);
               setCartItems([]);
-            } else {
-              toast.error(
-                shipRes.data.message || "❌ Shipping failed after payment."
-              );
-            }
-          } catch (shipErr) {
-            console.error("Shipping Error:", shipErr);
-            toast.error(
-              shipErr.response?.data?.message ||
-                "❌ Shipping error after payment."
-            );
-          }
+          //   } else {
+          //     toast.error(
+          //       shipRes.data.message || "❌ Shipping failed after payment."
+          //     );
+          //   }
+          // } catch (shipErr) {
+          //   console.error("Shipping Error:", shipErr);
+          //   toast.error(
+          //     shipErr.response?.data?.message ||
+          //       "❌ Shipping error after payment."
+          //   );
+          // }
         } else {
           toast.error(data.message || "❌ Payment verification failed.");
         }
