@@ -34,7 +34,7 @@ const OTPLogin = () => {
 
       console.log(data);
       if (response.ok) {
-        alert("OTP sent successfully!");
+        // alert("OTP sent successfully!");
         setStep("otp");
         setResendTimer(30);
         const timer = setInterval(() => {
@@ -77,7 +77,7 @@ const OTPLogin = () => {
       if (response.ok) {
         setToken(data.token);
         localStorage.setItem("token", data.token);
-        alert("Login successful");
+        // alert("Login successful");
         navigate(loginnavigate, { replace: true });
       } else {
         alert(data.message || "Invalid OTP");
