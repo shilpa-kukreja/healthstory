@@ -265,7 +265,7 @@ const Header = () => {
               {isOpen && (
                 <div className="user-dropdown">
                   {!isLoggedIn ? (
-                    <Link to="/signin" className="dropdown-item">
+                    <Link to="/login" className="dropdown-item">
                       Sign In
                     </Link>
                   ) : (

@@ -70,7 +70,7 @@ const OTPLogin = () => {
       const response = await fetch("https://healthstory.net.in/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ phone, otp: enteredOtp }),
+        body: JSON.stringify({  number : phone, otp: enteredOtp }),
       });
 
       const data = await response.json();
