@@ -482,8 +482,8 @@ const ShipOrders = async (req, res) => {
     const authRes = await axios.post(
       "https://apiv2.shiprocket.in/v1/external/auth/login",
       {
-        email: "imnehasingh1986@gmail.com",
-        password: "Poonam94!"
+        email: "deepshikhasingh866@gmail.com",
+        password: "Poonam98#"
       },
       { headers: { "Content-Type": "application/json" } }
     );
