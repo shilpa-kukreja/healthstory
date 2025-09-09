@@ -482,15 +482,16 @@ const ShipOrders = async (req, res) => {
     const authRes = await axios.post(
       "https://apiv2.shiprocket.in/v1/external/auth/login",
       {
-        email: "deepshikhasingh866@gmail.com",
-        password: "Poonam98#"
+        email: "imnehasingh1986@gmail.com",
+        password: "nh^0Q*cumP5hG21#"
       },
       { headers: { "Content-Type": "application/json" } }
     );
 
     const shiprokettoken = authRes.data.token;
-    console.log("Shiprocket Token:", shiprokettoken);
+  
 
+   
     // 2. Format date
     const formatDate = (timestamp) => {
       const date = new Date(timestamp);
