@@ -590,7 +590,7 @@ const ProductDetail = () => {
                 </div>
               </div>
 
-              <div className="flex justify-between flex-col sm:flex-none !my-10">
+              <div className="flex justify-between flex-col sm:flex-row !my-10">
 
                 <div className="col-half ">
                   <img src={gummiesbottomImg } alt=" proteinnutrution facts" />
