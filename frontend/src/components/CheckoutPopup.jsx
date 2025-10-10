@@ -715,6 +715,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
         if (response.data.success) {
           toast.success("🎉 Order placed successfully!");
           onClose();
+           navigate(`/orderss/${orderid}`);
         } else {
           toast.error(response.data.message || "Failed to place order");
         }
