@@ -211,6 +211,61 @@ img {
 
 
 
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(255, 215, 0, 0.9), 0 0 40px rgba(255, 140, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(255, 255, 0, 1), 0 0 60px rgba(255, 80, 0, 0.8);
+  }
+}
+.animate-glow {
+  animation: glow 3s infinite ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+.animate-float-delay {
+  animation: float 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+.animate-twinkle {
+  animation: twinkle 2s infinite;
+}
+
+
+
+
 
 
 
