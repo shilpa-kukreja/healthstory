@@ -163,6 +163,9 @@ const placeOrderCODSuccess = async (req, res) => {
       });
     }
 
+    console.log("Items:", items);
+    console.log("req body:", req.body);
+
     // Generate unique order ID
     const uniqueOrderId = `COD-${Date.now()}-${crypto.randomBytes(3).toString("hex")}`;
 
@@ -344,6 +347,9 @@ const placeOrderRazorpaysuccess = async (req, res) => {
     });
     await newOrder.save();
 
+    console.log("New Order Saved:", newOrder);
+    console.log("Items:", items);
+
     // Step 2: Create Razorpay order using newOrder._id as receipt
     const options = {
       amount: (amount - (discount || 0)) * 100,
@@ -357,6 +363,9 @@ const placeOrderRazorpaysuccess = async (req, res) => {
         return res.status(500).json({ success: false, message: "Razorpay order creation failed" });
       }
 
+      console.log("Razorpay Order Created:", razorpayOrder);
+      
+
       // Step 3: Update order with Razorpay order ID
       newOrder.orderid = razorpayOrder.id;
       await newOrder.save();
@@ -365,7 +374,7 @@ const placeOrderRazorpaysuccess = async (req, res) => {
     });
   } catch (error) {
     console.error("Error in placeOrderRazorpay:", error);
-    res.status(500).json({ success: false, message: "Server Error" });
+    res.status(500).json({ success: false, message: "Server Error", error: error.message ,});
   }
 };
 
