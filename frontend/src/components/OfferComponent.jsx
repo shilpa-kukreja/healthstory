@@ -104,7 +104,7 @@ const OfferComponent = () => {
             ✨ Diwali Mega Sale ✨
           </h2>
           <p className="!text-yellow-200 !text-xs !sm:!text-sm !font-semibold !mt-1 !drop-shadow-[0_1px_2px_rgba(0,0,0,0.4)]">
-            Sparkling Deals Await!
+            Limited Time Offer
           </p>
         </div>
       </div>
