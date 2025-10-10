@@ -16,7 +16,7 @@ const Orderss = () => {
   useEffect(() => {
     const loadSingleOrder = async () => {
       try {
-        if (!token) return;
+       
   
         const response = await axios.post(
           "https://healthstory.net.in/api/order/usersingleorders",
