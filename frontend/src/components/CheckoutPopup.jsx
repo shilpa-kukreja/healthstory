@@ -720,7 +720,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
             const shipRes = await axios.post(
               "https://healthstory.net.in/api/order/ship",
               { orderData, orderid },
-              { headers: { token } }
+             
             );
 
             console.log("Shipping Response:", shipRes.data);
