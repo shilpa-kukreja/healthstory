@@ -1,5 +1,5 @@
 import express from 'express'
-import { allOrders, getSingleOrder, placeOrderCOD, placeOrderRazorpay, updateStatus, userOrders, userSingleOrder, verifyRazorpay, ShipOrders, placeOrderCODSuccess, placeOrderRazorpaysuccess, verifyRazorpaysuccess } from '../controllers/orderController.js';
+import { allOrders, getSingleOrder, placeOrderCOD, placeOrderRazorpay, updateStatus, userOrders, userSingleOrder, verifyRazorpay, ShipOrders, placeOrderCODSuccess, placeOrderRazorpaysuccess, verifyRazorpaysuccess, userSingleOrders } from '../controllers/orderController.js';
 import authUser from '../middleware/auth.js';
 
 
@@ -20,6 +20,7 @@ orderRouter.post('/razorpaysuccess',placeOrderRazorpaysuccess)
 //User Feautures
 orderRouter.post('/userorders',authUser,userOrders)
 orderRouter.post('/usersingleorder',authUser,userSingleOrder)
+orderRouter.post('/usersingleorders',userSingleOrders)
 
 
 

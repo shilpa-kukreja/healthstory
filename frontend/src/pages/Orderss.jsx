@@ -19,7 +19,7 @@ const Orderss = () => {
         if (!token) return;
   
         const response = await axios.post(
-          "https://healthstory.net.in/api/order/usersingleorder",
+          "https://healthstory.net.in/api/order/usersingleorders",
           { orderid: id },
          
         );

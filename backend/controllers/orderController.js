@@ -631,6 +631,17 @@ const userSingleOrder = async (req, res) => {
 };
 
 
+const userSingleOrders = async (req, res) => {
+  try {
+    const { orderid } = req.body;
+    const orders = await orderModel.find({ orderid });
+    res.json({ success: true, orders });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
+};
+
 const getSingleOrder = async (req, res) => {
   try {
     const { id } = req.params;
@@ -866,4 +877,4 @@ const ShipOrders = async (req, res) => {
 
 
 
-export { placeOrderCOD,placeOrderCODSuccess,placeOrderRazorpaysuccess,verifyRazorpaysuccess, placeOrderRazorpay, verifyRazorpay, allOrders, userOrders, updateStatus, getSingleOrder, userSingleOrder, ShipOrders };
+export { placeOrderCOD,placeOrderCODSuccess,userSingleOrders,placeOrderRazorpaysuccess,verifyRazorpaysuccess, placeOrderRazorpay, verifyRazorpay, allOrders, userOrders, updateStatus, getSingleOrder, userSingleOrder, ShipOrders };
