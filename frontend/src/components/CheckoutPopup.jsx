@@ -728,7 +728,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
             if (shipRes.data.success) {
               toast.success("✅ COD order placed & shipment created!");
               navigate(`/orderss/${orderid}`);
-              setCartItems([]);
+             
             } else {
               toast.error(
                 shipRes.data.message || "❌ Shipping failed after COD order."
