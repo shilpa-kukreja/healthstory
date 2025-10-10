@@ -6,43 +6,43 @@ const CustomerReviews = () => {
   const [reviews] = useState([
     {
       id: 1,
-      name: "Sarah Chen",
+      name: "Riya Mehta",
       rating: 5,
-      date: "2024-01-15",
-      comment: "Absolutely love the authentic Asian ingredients! The quality is exceptional and delivery was super fast. Will definitely order again!",
+      date: "2025-09-15",
+      comment: "Finally, a vegan protein that actually tastes good! It blends so smoothly and gives me energy without bloating or heaviness.",
       verified: true,
       helpful: 12,
-      avatar: "SC"
+      avatar: "RM"
     },
     {
       id: 2,
-      name: "Michael Rodriguez",
+      name: "Karan Bhatia",
       rating: 4,
-      date: "2024-01-12",
-      comment: "Great products and reasonable prices. The packaging was secure and everything arrived fresh. Only wish there were more variety in snacks.",
+      date: "2025-09-12",
+      comment: "I’ve tried many protein powders, but Health Story stands out. The clean ingredients and natural coffee flavor make it a part of my everyday routine.",
       verified: true,
       helpful: 8,
-      avatar: "MR"
+      avatar: "KB"
     },
     {
       id: 3,
-      name: "Emma Thompson",
+      name: "Neha Sharma",
       rating: 5,
-      date: "2024-01-10",
-      comment: "Best Asian grocery store online! The customer service is outstanding and products are always authentic. Highly recommended!",
+      date: "2025-09-10",
+      comment: "My digestion and recovery have improved a lot since switching to this protein. I love that it’s plant-based and free from artificial additives.",
       verified: true,
       helpful: 15,
-      avatar: "ET"
+      avatar: "NS"
     },
     {
       id: 4,
-      name: "James Kim",
+      name: "Aman Verma",
       rating: 5,
-      date: "2024-01-08",
-      comment: "As someone who's lived in Asia, I can confirm these products are the real deal. Quality is top-notch and shipping is incredibly fast.",
+      date: "2024-09-20",
+      comment: "It’s the perfect post-workout drink! Keeps me full, supports my muscle recovery, and tastes amazing with almond milk.",
       verified: true,
       helpful: 20,
-      avatar: "JK"
+      avatar: "AV"
     }
   ]);
 
