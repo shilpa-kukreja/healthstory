@@ -498,7 +498,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [totalAfterDiscount, setTotalAfterDiscount] = useState(null);
-   const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const productPrice = selectedVariant ? selectedVariant.discountPrice : product.discountPrice;
   const totalPrice = productPrice * quantity;
@@ -629,7 +629,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
               if (shipRes.data.success) {
                 toast.success("🎉 Order placed successfully!");
                 onClose();
-                 navigate(`/orderss/${razorpayOrder.id}`);
+                navigate(`/orderss/${razorpayOrder.id}`);
               }
             } catch (shipErr) {
               console.error("Shipping Error:", shipErr);
@@ -697,7 +697,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
           "https://healthstory.net.in/api/order/razorpaysuccess",
           orderData
         );
-        
+
         if (response.data.success) {
           initPay({
             ...response.data.order,
@@ -713,9 +713,33 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
         );
 
         if (response.data.success) {
-          toast.success("🎉 Order placed successfully!");
-          onClose();
-           navigate(`/orderss/${orderid}`);
+          const orderid = response.data.orderid; // backend order id
+
+          try {
+            // 2. Create shipment (just like in Razorpay success handler)
+            const shipRes = await axios.post(
+              "https://healthstory.net.in/api/order/ship",
+              { orderData, orderid },
+              { headers: { token } }
+            );
+
+            console.log("Shipping Response:", shipRes.data);
+
+            if (shipRes.data.success) {
+              toast.success("✅ COD order placed & shipment created!");
+              navigate(`/orderss/${orderid}`);
+              setCartItems([]);
+            } else {
+              toast.error(
+                shipRes.data.message || "❌ Shipping failed after COD order."
+              );
+            }
+          } catch (shipErr) {
+            console.error("Shipping Error:", shipErr);
+            toast.error(
+              shipErr.response?.data?.message || "❌ Shipping error after COD order."
+            );
+          }
         } else {
           toast.error(response.data.message || "Failed to place order");
         }
@@ -894,7 +918,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
                   </div>
                 </form>
 
-              
+
               </div>
             </div>
 
@@ -925,7 +949,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
                   </div>
                 </div>
 
-                  <div className="payment-section">
+                <div className="payment-section">
                   <div className="section-header">
                     <CreditCard size={20} className="section-icon" />
                     <h3>Payment Method</h3>
