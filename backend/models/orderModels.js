@@ -13,5 +13,5 @@ const orderSchema=new mongoose.Schema({
     discount:{ type: Number }, 
 }, { timestamps: true })
 
-const orderModels=mongoose.models.order || mongoose.model('order',orderSchema)
+const orderModels=mongoose.models.orders || mongoose.model('orders',orderSchema)
 export default orderModels;
