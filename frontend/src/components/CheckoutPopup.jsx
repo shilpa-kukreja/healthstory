@@ -490,6 +490,7 @@ import { ShopContext } from '../context/ShopContext';
 import { toast } from "react-toastify";
 import { X, CreditCard, Truck, Shield, Lock, MapPin, User, Phone, Mail } from "lucide-react";
 import '../assets/Css/CheckoutPopup.css';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) => {
   const [loading, setLoading] = useState(false);
@@ -497,6 +498,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
   const [couponCode, setCouponCode] = useState("");
   const [discount, setDiscount] = useState(0);
   const [totalAfterDiscount, setTotalAfterDiscount] = useState(null);
+   const navigate = useNavigate();
 
   const productPrice = selectedVariant ? selectedVariant.discountPrice : product.discountPrice;
   const totalPrice = productPrice * quantity;
@@ -627,8 +629,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
               if (shipRes.data.success) {
                 toast.success("🎉 Order placed successfully!");
                 onClose();
-                // You can redirect to success page here if needed
-                // window.location.href = `/order-success/${razorpayOrder.id}`;
+                 navigate(`/orderss/${razorpayOrder.id}`);
               }
             } catch (shipErr) {
               console.error("Shipping Error:", shipErr);
@@ -696,7 +697,7 @@ const CheckoutPopup = ({ isOpen, onClose, product, selectedVariant, quantity }) 
           "https://healthstory.net.in/api/order/razorpaysuccess",
           orderData
         );
-
+        
         if (response.data.success) {
           initPay({
             ...response.data.order,

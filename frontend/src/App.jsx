@@ -26,6 +26,7 @@ import OurIngredients from './pages/OurIngredients'
 import Orders from './pages/Orders'
 import UserOrders from './pages/UserOrders'
 import LandingPage from './pages/LandingPage'
+import Orderss from './pages/Orderss'
 
 
 const App = () => {
@@ -62,6 +63,7 @@ const App = () => {
           <Route path='/return-and-refund-policy' element={<ReturnRefundPolicy />} />
           <Route path='/known-our-ingredientds' element={<OurIngredients />} />
           <Route path='/orders/:id' element={<Orders />} />
+          <Route path='/orderss/:id' element={<Orderss />} />
           <Route path='/orders' element={<UserOrders/>}/>
               
           <Route path='*' element={<Error />}  />
