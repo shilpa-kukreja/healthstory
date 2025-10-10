@@ -81,7 +81,7 @@ const CustomerReviews = () => {
               <div className="!flex !justify-center !mt-2">
                 {renderStars(5)}
               </div>
-              <div className="!text-sm !text-gray-500 !mt-1">Based on 2,847 reviews</div>
+              <div className="!text-sm !text-gray-500 !mt-1">Based on 100 reviews</div>
             </div>
             <div className="!h-16 !w-px !bg-gray-200"></div>
             <div className="!text-center">
