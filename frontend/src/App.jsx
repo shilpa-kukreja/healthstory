@@ -25,6 +25,7 @@ import Error from './components/Error'
 import OurIngredients from './pages/OurIngredients'
 import Orders from './pages/Orders'
 import UserOrders from './pages/UserOrders'
+import LandingPage from './pages/LandingPage'
 
 
 const App = () => {
@@ -33,17 +34,20 @@ const App = () => {
   const hideHeaderFooter = location.pathname === '/cart';
   const removeHeaderFooter = location.pathname === '/signin'
   const loginremoveheader = location.pathname === '/login'
+  const isLandingPage = location.pathname === '/plant-protein-24g';
 
  
   return (
     <div>
       <ToastContainer/>
       <ScrollToTop />
-      <Header/>
+     { !isLandingPage && <Header/>}
       <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/product-details/:id' element={<ProductDetail />} />
+       <Route path='/plant-protein-24g' element={<LandingPage proid={"6846b8dda4446eef2ea2e1fa"} />} />
+
       <Route path='/about' element={<About />} />
       <Route path="/product/:category" element={<Product />} />
       <Route path="/product" element={<Product />} />
@@ -66,7 +70,8 @@ const App = () => {
       </Routes>
       <Cart/>
       <Wishlist/>
-      {!hideHeaderFooter && !removeHeaderFooter && !loginremoveheader &&  <Footer/>}
+      {!hideHeaderFooter && !removeHeaderFooter && !loginremoveheader &&  !isLandingPage && <Footer/>}
+      
     </div>
   )
 }
