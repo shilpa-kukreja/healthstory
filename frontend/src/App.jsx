@@ -27,6 +27,9 @@ import Orders from './pages/Orders'
 import UserOrders from './pages/UserOrders'
 import LandingPage from './pages/LandingPage'
 import Orderss from './pages/Orderss'
+import ReferralDashboard from './pages/ReferralDashboard'
+
+
 
 
 const App = () => {
@@ -65,6 +68,8 @@ const App = () => {
           <Route path='/orders/:id' element={<Orders />} />
           <Route path='/orderss/:id' element={<Orderss />} />
           <Route path='/orders' element={<UserOrders/>}/>
+          <Route path='/referral-dashboard' element={<ReferralDashboard/>}/>
+
               
           <Route path='*' element={<Error />}  />
 

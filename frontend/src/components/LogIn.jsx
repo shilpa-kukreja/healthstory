@@ -14,6 +14,10 @@ const OTPLogin = () => {
   const { setToken, loginnavigate } = useContext(ShopContext);
   const navigate = useNavigate();
 
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const referralCode = urlParams.get("ref");
+
   // ✅ Send OTP
   const sendOtp = async () => {
     if (!phone || phone.length < 10) {
@@ -23,7 +27,7 @@ const OTPLogin = () => {
     setLoading(true);
     try {
       // 👇 Replace with your backend API
-      const response = await fetch("https://healthstory.net.in/api/auth/send-otp", {
+      const response = await fetch("http://localhost:5000/api/auth/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ number : phone }),
@@ -67,10 +71,10 @@ const OTPLogin = () => {
     setLoading(true);
     try {
       // 👇 Replace with your backend API
-      const response = await fetch("https://healthstory.net.in/api/auth/verify-otp", {
+      const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({  number : phone, otp: enteredOtp }),
+        body: JSON.stringify({ number: phone, otp: enteredOtp, referralCode }),
       });
 
       const data = await response.json();

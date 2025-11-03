@@ -18,7 +18,8 @@ const ShopContextProvider = (props) => {
 
   const [showCart, setShowCart] = useState(false);
   // const [products,setProducts]=useState([])
-  const [token, setToken] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
   // Add at the top with other useState
   const [cartItems, setCartItems] = useState(() => {
     const savedCart = localStorage.getItem("cartItems");

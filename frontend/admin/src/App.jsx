@@ -23,6 +23,10 @@ import AdminDashboard from './pages/AdminDashboard';
 import AdminAddBlog from './pages/AdminAddBlog';
 import AdminlistBlog from './pages/AdminlistBlog';
 import Subscription from './pages/Subscription';
+import AdminPayoutDashboard from './pages/AdminPayoutDashboard';
+import ReferralSettings from './pages/ReferralSettings';
+import AdminAllReferrals from './pages/AdminAllReferrals';
+import AdminVerifiedUsers from './pages/AdminVerifiedUsers';
 
 
 
@@ -65,7 +69,10 @@ const App = () => {
           <Route path='/listblog' element={<AdminlistBlog token={token}/>}/>
           <Route path='/addblog/:id' element={<AdminAddBlog token={token}/>}/>
           <Route path='/subscriber' element={<Subscription token={token}/>}/>
-
+           <Route path='/adminreferralpayout' element={<AdminPayoutDashboard token={token}/>}/>
+            <Route path='/adminsetting' element={<ReferralSettings token={token}/>}/>
+             <Route path='/adminallreferral' element={<AdminAllReferrals token={token}/>}/>
+             <Route path='/adminverfieduser' element={<AdminVerifiedUsers token={token}/>}/>
           </Routes>
         </div>
 

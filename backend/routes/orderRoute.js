@@ -1,6 +1,7 @@
 import express from 'express'
 import { allOrders, getSingleOrder, placeOrderCOD, placeOrderRazorpay, updateStatus, userOrders, userSingleOrder, verifyRazorpay, ShipOrders, placeOrderCODSuccess, placeOrderRazorpaysuccess, verifyRazorpaysuccess, userSingleOrders } from '../controllers/orderController.js';
-import authUser from '../middleware/auth.js';
+import authUsers from '../middleware/authUser.js';
+
 
 
 const orderRouter=express.Router();
@@ -12,20 +13,20 @@ orderRouter.post('/status',updateStatus)
 orderRouter.post('/ship',ShipOrders);
 
 //payment Feauters
-orderRouter.post('/place',authUser,placeOrderCOD);
+orderRouter.post('/place',authUsers,placeOrderCOD);
 orderRouter.post('/cod',placeOrderCODSuccess)
-orderRouter.post('/razorpay',authUser,placeOrderRazorpay)
+orderRouter.post('/razorpay',authUsers,placeOrderRazorpay)
 orderRouter.post('/razorpaysuccess',placeOrderRazorpaysuccess)
 
 //User Feautures
-orderRouter.post('/userorders',authUser,userOrders)
-orderRouter.post('/usersingleorder',authUser,userSingleOrder)
+orderRouter.post('/userorders',authUsers,userOrders)
+orderRouter.post('/usersingleorder',authUsers,userSingleOrder)
 orderRouter.post('/usersingleorders',userSingleOrders)
 
 
 
 //Verify Router
-orderRouter.post('/verifyRazorpay',authUser,verifyRazorpay)
+orderRouter.post('/verifyRazorpay',authUsers,verifyRazorpay)
 orderRouter.post('/verifyRazorpaysuccess',verifyRazorpaysuccess)
 
 export default orderRouter;

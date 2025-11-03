@@ -1,5 +1,5 @@
 import express from 'express'
-import { addCoupan, applyCoupon, getAllCoupons, removeCoupons, toggleCouponStatus, updateCoupons } from '../controllers/couponController.js';
+import { addCoupan, applyCoupon, applyCouponWithReferral, getAllCoupons, removeCoupons, toggleCouponStatus, updateCoupons } from '../controllers/couponController.js';
 import authUser from '../middleware/auth.js';
 
 
@@ -13,6 +13,7 @@ couponRouter.get("/get", getAllCoupons);
 couponRouter.put("/:id/toggle", toggleCouponStatus);
 couponRouter.post('/remove', removeCoupons);
 couponRouter.put('/:id', updateCoupons);
+couponRouter.post('/apply-referral', applyCouponWithReferral);
 
 
 export default couponRouter

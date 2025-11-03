@@ -9,6 +9,7 @@ import {
   FaShoppingBag,
   FaTags,
   FaUsers,
+  FaMoneyBill,
   FaHeadset,
   FaStore,
   FaTicketAlt
@@ -258,17 +259,35 @@ const Sidebar = () => {
           </div>
         </div>
 
-
-        {/* Manage Users */}
-        <NavLink to="/listuser" className={menuItemClasses}>
-          <FaUsers className="text-lg" />
-          <span>Manage Users</span>
-        </NavLink>
-
         {/* Contacts */}
         <NavLink to="/listcontact" className={menuItemClasses}>
           <FiMail className="text-lg" />
           <span>Contacts</span>
+        </NavLink>
+
+
+        {/* Manage Users */}
+        <NavLink to="/adminverfieduser" className={menuItemClasses}>
+          <FaUsers className="text-lg" />
+          <span>Manage Users</span>
+        </NavLink>
+        
+
+         {/* Admin Payout History */}
+        <NavLink to="/adminreferralpayout" className={menuItemClasses}>
+          <FaMoneyBill className="text-lg" />
+          <span>UserPayoutRequest</span>
+        </NavLink>
+
+
+         <NavLink to="/adminsetting" className={menuItemClasses}>
+          <FaMoneyBill className="text-lg" />
+          <span>Comission Setting</span>
+        </NavLink>
+
+        <NavLink to="/adminallreferral" className={menuItemClasses}>
+          <FaMoneyBill className="text-lg" />
+          <span>AdminAllReferral</span>
         </NavLink>
 
         {/* Subscriptions */}
