@@ -245,7 +245,7 @@ export default function ReferralSettings() {
   const fetchSettings = async () => {
     try {
       setFetchLoading(true);
-      const { data } = await axios.get("http://localhost:5000/api/auth/referral-config");
+      const { data } = await axios.get("https://healthstory.net.in/api/auth/referral-config");
       if (data.success && data.config) {
         setSettings(data.config);
       }
@@ -261,7 +261,7 @@ export default function ReferralSettings() {
     setLoading(true);
     setMessage("");
     try {
-      const response = await axios.put("http://localhost:5000/api/auth/referral-config", settings);
+      const response = await axios.put("https://healthstory.net.in/api/auth/referral-config", settings);
       
       if (response.data.success) {
         setMessage("Settings Updated Successfully ✅");

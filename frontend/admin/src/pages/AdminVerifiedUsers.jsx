@@ -28,7 +28,7 @@ const AdminVerifiedUsers = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/auth/all-verified");
+        const { data } = await axios.get("https://healthstory.net.in/api/auth/all-verified");
         setUsers(data.allverified || []);
       } catch (error) {
         console.error("Error fetching verified users:", error);

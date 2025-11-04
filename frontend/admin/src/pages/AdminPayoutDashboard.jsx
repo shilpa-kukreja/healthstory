@@ -34,7 +34,7 @@ const AdminPayoutDashboard = ({ token }) => {
   const fetchPayouts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("http://localhost:5000/api/auth/admin/all", {
+      const res = await axios.get("https://healthstory.net.in/api/auth/admin/all", {
         headers: { Authorization: `Bearer ${token}` },
       });
       
@@ -58,7 +58,7 @@ const AdminPayoutDashboard = ({ token }) => {
   const updateStatus = async (id, status) => {
     try {
       await axios.put(
-        `http://localhost:5000/api/auth/admin/update/${id}`,
+        `https://healthstory.net.in/api/auth/admin/update/${id}`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );

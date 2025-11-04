@@ -27,7 +27,7 @@ const OTPLogin = () => {
     setLoading(true);
     try {
       // 👇 Replace with your backend API
-      const response = await fetch("http://localhost:5000/api/auth/send-otp", {
+      const response = await fetch("https://healthstory.net.in/api/auth/send-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ number : phone }),
@@ -71,7 +71,7 @@ const OTPLogin = () => {
     setLoading(true);
     try {
       // 👇 Replace with your backend API
-      const response = await fetch("http://localhost:5000/api/auth/verify-otp", {
+      const response = await fetch("https://healthstory.net.in/api/auth/verify-otp", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ number: phone, otp: enteredOtp, referralCode }),

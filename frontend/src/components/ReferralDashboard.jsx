@@ -49,7 +49,7 @@ const ReferralDashboard = ({ dashboard, referrals, token, onClose }) => {
 
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/request',
+        'https://healthstory.net.in/api/auth/request',
         {
           method: payoutMethod,
           amount: parseFloat(payoutAmount),
@@ -75,7 +75,7 @@ const ReferralDashboard = ({ dashboard, referrals, token, onClose }) => {
   useEffect(() => {
     const fetchTotalEarnings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/total-earnings", {
+        const res = await axios.get("https://healthstory.net.in/api/auth/total-earnings", {
           headers: { token: localStorage.getItem("token") },
         });
 

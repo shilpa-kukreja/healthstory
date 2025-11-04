@@ -18,8 +18,8 @@ const AdminAllReferrals = () => {
     try {
       setLoading(true);
       const [referralsRes, statsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/auth/all-referrals'),
-        axios.get('http://localhost:5000/api/auth/referral-stats')
+        axios.get('https://healthstory.net.in/api/auth/all-referrals'),
+        axios.get('https://healthstory.net.in/api/auth/referral-stats')
       ]);
 
       if (referralsRes.data.success) {

@@ -558,7 +558,7 @@ const CheckOut = () => {
 
       // First try coupon referral system
       const { data } = await axios.post(
-        "http://localhost:5000/api/coupon/apply-referral",
+        "https://healthstory.net.in/api/coupon/apply-referral",
         {
           couponCode,
           totalAmount,
@@ -627,7 +627,7 @@ const CheckOut = () => {
 
           // ✅ Step 1: Verify payment
           const { data } = await axios.post(
-            "http://localhost:5000/api/order/verifyRazorpay",
+            "https://healthstory.net.in/api/order/verifyRazorpay",
             response,
             { headers: { token } }
           );
@@ -740,7 +740,7 @@ const CheckOut = () => {
         switch (method) {
           case "cod": {
             const response = await axios.post(
-              "http://localhost:5000/api/order/place",
+              "https://healthstory.net.in/api/order/place",
               orderData,
               { headers: { token } }
             );
@@ -789,7 +789,7 @@ const CheckOut = () => {
 
           case "razorpay": {
             const responseRazorpay = await axios.post(
-              "http://localhost:5000/api/order/razorpay",
+              "https://healthstory.net.in/api/order/razorpay",
               orderData,
               { headers: { token } }
             );
