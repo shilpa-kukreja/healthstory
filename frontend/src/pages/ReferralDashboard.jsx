@@ -659,19 +659,19 @@ const ReferralDashboard = () => {
     setLoading(true);
     try {
       const [dashboardRes, referralsRes, payoutsRes] = await Promise.all([
-        axios.get('http://localhost:5000/api/auth/referral/dashboard', {
+        axios.get('https://healthstory.net.in/api/auth/referral/dashboard', {
           headers: { token }
         }).catch(err => {
           console.error('Dashboard fetch failed:', err);
           throw err;
         }),
-        axios.get('http://localhost:5000/api/auth/referrals', {
+        axios.get('https://healthstory.net.in/api/auth/referrals', {
           headers: { token }
         }).catch(err => {
           console.error('Referrals fetch failed:', err);
           return { data: { referrals: [] } };
         }),
-        axios.get('http://localhost:5000/api/auth/history', {
+        axios.get('https://healthstory.net.in/api/auth/history', {
           headers: { token }
         }).catch(err => {
           console.error('Payouts fetch failed:', err);
@@ -717,7 +717,7 @@ const ReferralDashboard = () => {
   useEffect(() => {
     const fetchTotalEarnings = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/auth/total-earnings", {
+        const res = await axios.get("https://healthstory.net.in/api/auth/total-earnings", {
           headers: { token: localStorage.getItem("token") },
         });
         setTotalEarnings(res.data.totalEarnings);
@@ -808,7 +808,7 @@ const ReferralDashboard = () => {
     // Rest of the function remains the same...
     try {
       const response = await axios.post(
-        'http://localhost:5000/api/auth/request',
+        'https://healthstory.net.in/api/auth/request',
         {
           method: payoutMethod,
           amount: amount,
@@ -825,7 +825,7 @@ const ReferralDashboard = () => {
         fetchDashboardData();
 
         // Also refetch total earnings to update the calculation
-        const res = await axios.get("http://localhost:5000/api/auth/total-earnings", {
+        const res = await axios.get("https://healthstory.net.in/api/auth/total-earnings", {
           headers: { token: localStorage.getItem("token") },
         });
         setTotalEarnings(res.data.totalEarnings);
