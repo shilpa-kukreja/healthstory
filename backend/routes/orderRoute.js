@@ -14,7 +14,7 @@ orderRouter.post('/ship',ShipOrders);
 
 //payment Feauters
 orderRouter.post('/place',authUsers,placeOrderCOD);
-orderRouter.post('/cod',placeOrderCODSuccess)
+orderRouter.post('/cod', placeOrderCODSuccess)
 orderRouter.post('/razorpay',authUsers,placeOrderRazorpay)
 orderRouter.post('/razorpaysuccess',placeOrderRazorpaysuccess)
 

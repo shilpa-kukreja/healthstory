@@ -216,7 +216,7 @@
 //           case "cod": {
 //             // 1. Place order via your backend
 //             const response = await axios.post(
-//               "http://localhost:5000/api/order/place",
+//               "https://healthstory.net.in/api/order/place",
 //               orderData,
 //               { headers: { token } }
 //             );
@@ -685,6 +685,7 @@ const CheckOut = () => {
 
   const onSubmitHandler = async (event) => {
     event.preventDefault();
+    setLoading(true);
     try {
       let orderItems = [];
 
@@ -817,6 +818,8 @@ const CheckOut = () => {
     } catch (error) {
       console.log(error);
       toast.error("Failed to place order. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -1010,9 +1013,26 @@ const CheckOut = () => {
             </div>
 
             {/* Submit */}
-            <div className="place_order_btn">
+            {/* <div className="place_order_btn">
               <button type="submit" form="form">Confirm and Pay</button>
+            </div> */}
+            <div className="place_order_btn">
+              <button
+                type="submit"
+                form="form"
+                disabled={loading}
+                className={loading ? "disabled-btn" : ""}
+              >
+                {loading ? (
+                  <>
+                    <span className="spinner"></span> Processing...
+                  </>
+                ) : (
+                  "Confirm and Pay"
+                )}
+              </button>
             </div>
+
           </div>
         </div>
       </div>

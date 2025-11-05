@@ -35,9 +35,9 @@
 //     setLoading(true);
 //     try {
 //       const [dashboardRes, referralsRes, payoutsRes] = await Promise.all([
-//         axios.get('http://localhost:5000/api/auth/referral/dashboard', { headers: { token } }),
-//         axios.get('http://localhost:5000/api/auth/referrals', { headers: { token } }),
-//         axios.get('http://localhost:5000/api/auth/history', { headers: { token } })
+//         axios.get('https://healthstory.net.in/api/auth/referral/dashboard', { headers: { token } }),
+//         axios.get('https://healthstory.net.in/api/auth/referrals', { headers: { token } }),
+//         axios.get('https://healthstory.net.in/api/auth/history', { headers: { token } })
 //       ]);
 
 //       setDashboard(dashboardRes.data);
@@ -69,7 +69,7 @@
 //   useEffect(() => {
 //     const fetchTotalEarnings = async () => {
 //       try {
-//         const res = await axios.get("http://localhost:5000/api/auth/total-earnings", {
+//         const res = await axios.get("https://healthstory.net.in/api/auth/total-earnings", {
 //           headers: { token: localStorage.getItem("token") },
 //         });
 //         setTotalEarnings(res.data.totalEarnings);
@@ -134,7 +134,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         'http://localhost:5000/api/auth/request',
+//         'https://healthstory.net.in/api/auth/request',
 //         {
 //           method: payoutMethod,
 //           amount: amount,
