@@ -896,7 +896,13 @@ console.log("Razorpay Key Secret:", process.env.RAZORPAY_KEY_SECRET);
 
 const placeOrderCOD = async (req, res) => {
   try {
-    console.log("Received Data:", req.body);
+    // console.log("Received Data:", req.body);
+
+    // console.log("Received Data:", req.user);
+
+    const userid = req.user.id;
+    const userPhone = req.user.number;
+
 
     const { userId, items, amount, address, couponCode, discount, phone, couponReferralInfo } = req.body;
 
@@ -908,7 +914,7 @@ const placeOrderCOD = async (req, res) => {
     }
 
     // Find user with referral data using phone number
-    const user = await VerifiedNumberModel.findOne({ number: phone }).populate("referredBy");
+    const user = await VerifiedNumberModel.findOne({ number: userPhone }).populate("referredBy");
 
     // Get referral configuration from database
     let config = await ReferralConfig.findOne();
@@ -974,6 +980,7 @@ const placeOrderCOD = async (req, res) => {
     }
 
     // ✅ Handle Direct Referral (only if not already used)
+    
     if (user && user.referredBy && !user.usedReferral) {
       referredBy = user.referredBy._id;
 
@@ -1777,6 +1784,9 @@ const placeOrderRazorpay = async (req, res) => {
   try {
     console.log("Received Razorpay Data:", req.body);
 
+    const userid = req.user.id;
+    const userPhone = req.user.number;
+
     const { userId, items, amount, address, couponCode, discount, phone, couponReferralInfo } = req.body;
 
     if (!items || items.length === 0) {
@@ -1787,7 +1797,7 @@ const placeOrderRazorpay = async (req, res) => {
     }
 
     // Find user with referral data using phone number
-    const user = await VerifiedNumberModel.findOne({ number: phone }).populate("referredBy");
+    const user = await VerifiedNumberModel.findOne({ number: userPhone }).populate("referredBy");
 
     // Get referral configuration from database
     let config = await ReferralConfig.findOne();
